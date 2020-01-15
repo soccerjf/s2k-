@@ -24,8 +24,8 @@ class LeagueVC: UITableViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetStatus.shared.startMonitoring()
-        NetStatus.shared.netStatusChangeHandler = {
+        NetworkStatus.shared.startMonitoring()
+        NetworkStatus.shared.netStatusChangeHandler = {
             DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
             }
@@ -35,6 +35,7 @@ class LeagueVC: UITableViewController  {
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
     }
+    
 // MARK: set the section info
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 1 ? 50 : 1
@@ -56,7 +57,7 @@ class LeagueVC: UITableViewController  {
         }
     }
     
-// MARK: - UITableViewDataSource
+// MARK: - Table view data source and delegate methods
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -71,10 +72,10 @@ class LeagueVC: UITableViewController  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueCell
         switch indexPath.section {
         case 0:
-            if NetStatus.shared.isConnected {
+            if NetworkStatus.shared.isConnected {
                 cell.leagueName.text = "Internet Status: Connected"
                 cell.leagueEndDateLabel.text = "Using: "
-                if NetStatus.shared.isExpensive {
+                if NetworkStatus.shared.isExpensive {
                    cell.leagueEndDate.text = "Cellular"
                 } else {
                     cell.leagueEndDate.text = "WiFi"
@@ -126,8 +127,8 @@ class LeagueVC: UITableViewController  {
 private extension LeagueVC {
     
     func checkNetwork() {
-        if NetStatus.shared.isMonitoring {
-          if NetStatus.shared.isConnected {
+        if NetworkStatus.shared.isMonitoring {
+          if NetworkStatus.shared.isConnected {
               self.view.addSubview(networkActivity)
               fetchData(source: "1", dataType: "0", dataTypeDetail: "0")
           } else {
@@ -135,7 +136,7 @@ private extension LeagueVC {
               self.view.addSubview(networkActivity)
           }
         } else {
-            NetStatus.shared.startMonitoring()
+            NetworkStatus.shared.startMonitoring()
         }
     }
     

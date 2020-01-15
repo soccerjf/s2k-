@@ -79,19 +79,15 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showDivisionVCSegue" {
-//            guard
-//              let selectedCell = sender as? UITableViewCell,
-//              let index = tableView.indexPath(for: selectedCell)?.row, segue.identifier == "showDivisionVCSegue"
-//              else {
-//                fatalError("sender is not a UITableViewCell or was not found in the tableView, or segue.identifier is incorrect")
-//            }
-//            let dest = segue.destination as? DivisionVC
-//            dest?.leagueID = fetchedLeagues[index].leagueID
-//            dest?.leagueName = fetchedLeagues[index].leagueName
-//            print(fetchedLeagues[index].leagueName)
-//            dest?.division = fetchedLeagues[index].divisions as! [Division]
-//        }
+        if segue.identifier == "showTeamsVCSegue" {
+            guard
+              let selectedCell = sender as? UICollectionViewCell,
+              let index = divisionView.indexPath(for: selectedCell)?.row, segue.identifier == "showTeamsVCSegue"
+              else {
+                fatalError("sender is not a UICollectionViewCell or was not found in the collectionView, or segue.identifier is incorrect")
+            }
+            let dest = segue.destination as? TeamsVC
+        }
         if segue.identifier == "DivisionHelpSegue" {
             if let dest = segue.destination as? HelpVC {
                 dest.leagueName = self.leagueName

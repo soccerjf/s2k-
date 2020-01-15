@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */; };
 		BF64FD7F23CB746A000A1686 /* DivisionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64FD7E23CB746A000A1686 /* DivisionFlowLayout.swift */; };
+		BFA47C4023CEAE710033DDA0 /* TeamStandingsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA47C3F23CEAE710033DDA0 /* TeamStandingsGrid.swift */; };
+		BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA47C4123CEB2510033DDA0 /* TeamCell.swift */; };
 		BFC17CC923CA1CAA008AAF4D /* HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC17CC823CA1CAA008AAF4D /* HelpVC.swift */; };
 		BFC17CCB23CA2887008AAF4D /* DivisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC17CCA23CA2887008AAF4D /* DivisionVC.swift */; };
 		BFC17CD123CA60B5008AAF4D /* DivisionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC17CD023CA60B5008AAF4D /* DivisionCell.swift */; };
@@ -24,11 +26,14 @@
 		BFD833CA23C919E200F3EA9B /* NetworkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C923C919E200F3EA9B /* NetworkActivity.swift */; };
 		BFD833CD23C9521000F3EA9B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BFD833CC23C9521000F3EA9B /* Kingfisher */; };
 		BFF3950723CDF97400BC1F6F /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */; };
+		BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionSectionHeaderView.swift; sourceTree = "<group>"; };
 		BF64FD7E23CB746A000A1686 /* DivisionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionFlowLayout.swift; sourceTree = "<group>"; };
+		BFA47C3F23CEAE710033DDA0 /* TeamStandingsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStandingsGrid.swift; sourceTree = "<group>"; };
+		BFA47C4123CEB2510033DDA0 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		BFC17CC823CA1CAA008AAF4D /* HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpVC.swift; sourceTree = "<group>"; };
 		BFC17CCA23CA2887008AAF4D /* DivisionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionVC.swift; sourceTree = "<group>"; };
 		BFC17CD023CA60B5008AAF4D /* DivisionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionCell.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		BFD833C723C9150400F3EA9B /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
 		BFD833C923C919E200F3EA9B /* NetworkActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivity.swift; sourceTree = "<group>"; };
 		BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				BFC17CCA23CA2887008AAF4D /* DivisionVC.swift */,
 				BFC17CC823CA1CAA008AAF4D /* HelpVC.swift */,
 				BFD833B323C8D7E400F3EA9B /* LeagueVC.swift */,
+				BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -93,6 +100,7 @@
 				BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */,
 				BFD833C323C8E4E900F3EA9B /* LeagueCell.swift */,
 				BFC17CD023CA60B5008AAF4D /* DivisionCell.swift */,
+				BFA47C4123CEB2510033DDA0 /* TeamCell.swift */,
 			);
 			path = "Cell Views";
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 				BFD833BA23C8D7E600F3EA9B /* LaunchScreen.storyboard */,
 				BFD833BD23C8D7E600F3EA9B /* Info.plist */,
 				BF64FD7E23CB746A000A1686 /* DivisionFlowLayout.swift */,
+				BFA47C3F23CEAE710033DDA0 /* TeamStandingsGrid.swift */,
 			);
 			path = "s2k+";
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */,
 				BFC17CCB23CA2887008AAF4D /* DivisionVC.swift in Sources */,
 				BFD833C823C9150400F3EA9B /* NetworkServices.swift in Sources */,
 				BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */,
@@ -215,6 +225,8 @@
 				BFD833B423C8D7E400F3EA9B /* LeagueVC.swift in Sources */,
 				BFD833B023C8D7E400F3EA9B /* AppDelegate.swift in Sources */,
 				BF64FD7F23CB746A000A1686 /* DivisionFlowLayout.swift in Sources */,
+				BFA47C4023CEAE710033DDA0 /* TeamStandingsGrid.swift in Sources */,
+				BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */,
 				BFD833C623C9144A00F3EA9B /* DataModels.swift in Sources */,
 				BFF3950723CDF97400BC1F6F /* NetworkStatus.swift in Sources */,
 				BFD833CA23C919E200F3EA9B /* NetworkActivity.swift in Sources */,
