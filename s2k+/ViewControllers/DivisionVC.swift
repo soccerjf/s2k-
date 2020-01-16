@@ -23,7 +23,6 @@ class DivisionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.addSubview(networkActivity)
         self.divisionView.reloadData()
         self.networkActivity.hide()
@@ -87,6 +86,9 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
                 fatalError("sender is not a UICollectionViewCell or was not found in the collectionView, or segue.identifier is incorrect")
             }
             let dest = segue.destination as? TeamsVC
+            dest?.divID = division[index].divID
+            dest?.divName = division[index].divName
+            dest?.showStandings = division[index].showStandings
         }
         if segue.identifier == "DivisionHelpSegue" {
             if let dest = segue.destination as? HelpVC {

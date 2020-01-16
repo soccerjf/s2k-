@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct DataSource {
+    static let source = "1"  // 0 is for production database, 1 is for sandbox database
+}
+
 struct League {
     let leagueID: String
     let leagueName: String
@@ -53,12 +57,38 @@ extension Division: Decodable {
 struct Team {
     let teamID: String
     let teamName: String
+    let teamWins: String
+    let teamLosses: String
+    let teamTies: String
+    let teamTotalGames: String
+    let teamPoints: String
+    let teamGoalsFor: String
+    let teamGoalsAgainst: String
+    let teamGoalDiff: String
+    let teamLastGameA: String
+    let teamLastGameB: String
+    let teamLastGameC: String
+    let teamLastGameD: String
+    let teamLastGameE: String
 }
 
 extension Team: Decodable {
     enum CodingKeys: String, CodingKey {
         case teamID
         case teamName
+        case teamWins
+        case teamLosses
+        case teamTies
+        case teamTotalGames
+        case teamPoints
+        case teamGoalsFor
+        case teamGoalsAgainst
+        case teamGoalDiff
+        case teamLastGameA
+        case teamLastGameB
+        case teamLastGameC
+        case teamLastGameD
+        case teamLastGameE
     }
 }
 

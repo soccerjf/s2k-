@@ -130,7 +130,7 @@ private extension LeagueVC {
         if NetworkStatus.shared.isMonitoring {
           if NetworkStatus.shared.isConnected {
               self.view.addSubview(networkActivity)
-              fetchData(source: "1", dataType: "0", dataTypeDetail: "0")
+            fetchData(source: DataSource.source, dataType: "0", dataTypeDetail: "0")
           } else {
               let networkActivity = NetworkActivity(text: "Network ISSUE")
               self.view.addSubview(networkActivity)
@@ -151,7 +151,7 @@ private extension LeagueVC {
             guard ((self?.fetchedLeagues = leagues!) != nil)
                  else {
                     //TODO: proper reporting
-                    print("Error in fetchData")
+                    print("Error in fetchData - Leagues")
                     return
             }
             self?.networkActivity.hide()
