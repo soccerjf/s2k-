@@ -21,12 +21,20 @@ class TeamsVC: UIViewController {
     private var request: AnyObject?
     let networkActivity = NetworkActivity(text: "Fetching Teams")
     
+    @IBAction func teamHelp(_ sender: Any) {
+        performSegue(withIdentifier: "TeamHelpSegue", sender: nil)
+    }
     @IBOutlet var teamsView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let nibLastGames = UINib(nibName: "LastFiveGamesCell", bundle: nil)
         teamsView.register(nibLastGames, forCellWithReuseIdentifier: "LastFiveGamesCell")
+        if showStandings != "Yes" {
+            navigationItem.title = "Teams In The Division"
+        } else {
+            navigationItem.title = "Team Standings"
+        }
         self.view.addSubview(networkActivity)
         fetchData(source: DataSource.source, dataType: "1", dataTypeDetail: divID)
     }
@@ -75,7 +83,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             default:
                 cell.anyLabel.text = ""
             }
-            if indexPath.item > 1 {
+            if indexPath.item > 0 {
                 cell.anyLabel.textAlignment = .center
                 if showStandings != "Yes" {
                     cell.anyLabel.text = ""
@@ -235,7 +243,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 }
                 return lastFiveCell
             }
-            if indexPath.item > 1 {
+            if indexPath.item > 0 {
                 cell.anyLabel.textAlignment = .right
                 cell.backgroundColor = UIColor.white
                 cell.anyLabel.textColor = UIColor.black
@@ -253,6 +261,19 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
         }
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "TeamHelpSegue" && self.showStandings == "Yes" {
+            if let dest = segue.destination as? HelpVC {
+                dest.sourceID = "Standings"
+            }
+        }
+        if segue.identifier == "TeamHelpSegue" && self.showStandings != "Yes" {
+            if let dest = segue.destination as? HelpVC {
+                dest.sourceID = "Team"
+            }
+        }
+    }
 }
 
 extension TeamsVC: UICollectionViewDelegateFlowLayout {
@@ -263,7 +284,6 @@ extension TeamsVC: UICollectionViewDelegateFlowLayout {
 }
 
 private extension TeamsVC {
-    
     func fetchData(source: String,dataType: String, dataTypeDetail: String) {
         let queryItems = [
                 URLQueryItem(name: "source", value: source), // 0=production, 1=sandbox

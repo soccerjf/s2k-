@@ -47,6 +47,11 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
         cell.divisionLogo.makeRoundCorners(byRadius: 20)
         cell.divisionName.text = division[indexPath.row].divName
         cell.divisionAgeGroup.text = division[indexPath.row].divAgeGroup
+        if division[indexPath.row].showStandings == "Yes" {
+            cell.divisionShowStandings.text = ""
+        } else {
+            cell.divisionShowStandings.text = "Standings N/A"
+        }
         return cell
     }
     

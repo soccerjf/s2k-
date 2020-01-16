@@ -15,4 +15,5 @@ class DivisionCell: UICollectionViewCell {
     @IBOutlet weak var divisionAgeGroup: UILabel!
     @IBOutlet weak var divisionGender: UILabel!
     
+    @IBOutlet weak var divisionShowStandings: UILabel!
 }

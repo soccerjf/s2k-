@@ -18,6 +18,7 @@ struct League {
     let leagueStart: String
     let leagueEnd: String
     let leagueLogoURL: URL
+    let seeDate: String
     let divisions: [Division?]
 }
 
@@ -28,6 +29,7 @@ extension League: Decodable {
         case leagueStart
         case leagueEnd
         case leagueLogoURL
+        case seeDate
         case divisions
     }
 }
@@ -89,6 +91,44 @@ extension Team: Decodable {
         case teamLastGameC
         case teamLastGameD
         case teamLastGameE
+    }
+}
+
+struct Schedule {
+    let gameID: String
+    let gameNo: String
+    let gameDate: String
+    let gameTime: String
+    let gameLocation: String
+    let gameHomeTeam: String
+    let gameAwayTeam: String
+    let gameHomeTeamScore: String
+    let gameAwayTeamScore: String
+    let gameStatus: String
+    let gameReported: String
+    let gameActualStartTime: String
+    let gameLat: String
+    let gameLong: String
+    let gameCup: String
+}
+
+extension Schedule: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case gameID
+        case gameNo
+        case gameDate
+        case gameTime
+        case gameLocation
+        case gameHomeTeam
+        case gameAwayTeam
+        case gameHomeTeamScore
+        case gameAwayTeamScore
+        case gameStatus
+        case gameReported
+        case gameActualStartTime
+        case gameLat
+        case gameLong
+        case gameCup
     }
 }
 

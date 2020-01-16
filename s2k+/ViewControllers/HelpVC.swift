@@ -28,8 +28,12 @@ class HelpVC: UIViewController {
             htmlText = "DIVISION VIEW Help<br /><br />These are the Divisions/Age Groups in the " + leagueName + " League you choose<br />Tap on a Division Name or Logo to see the standings (if applicable) and schedule for the Division.<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
+        if sourceID == "Team" {
+            htmlText = "TEAM VIEW Help<br /><br />Tap on a Team Name to see the schedule<br /><br />Teams within this division do not track game results.<br />Tap anywhere on this screen to close it."
+             helpText.text = htmlText.htmlToString
+        }
         if sourceID == "Standings" {
-            htmlText = "STANDINGS VIEW Help<br /><br />Tap on a Team Name to see the schedule or past game results (for non development teams)<br /><br />Expanded Titles<br /><br />Pts - Points<br />G - games played<br />W - Wins<br />T - Ties<br />L - Losses<br />GF - Goals For<br />GA - Goals Againsts<br />GD - Goal Difference<br /><br />Tap anywhere on this screen to close it."
+            htmlText = "STANDINGS VIEW Help<br /><br />Tap on a Team Name to see the schedule or past game results<br /><br />Expanded Titles<br /><br />Pts - Points<br />G - games played<br />W - Wins<br />T - Ties<br />L - Losses<br />GF - Goals For<br />GA - Goals Againsts<br />GD - Goal Difference<br /><br />Tap anywhere on this screen to close it."
              helpText.text = htmlText.htmlToString
         }
         if sourceID == "Schedule" {

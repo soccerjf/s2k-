@@ -67,24 +67,20 @@ class StandingsLayout: UICollectionViewLayout {
                 } else if section == 0 || item == 0 {
                     cellAttributes.zIndex = 1023  // Set this value for the first row or section in order to set visible over the rest of the items
                 }
-                
                 if section == (collectionView!.numberOfSections)  && item == 0 {
                     cellAttributes.zIndex = 1
-                    cellAttributes.frame = CGRect(x: 1, y: yPos, width: 360, height: cellHeight)
+                    cellAttributes.frame = CGRect(x: 1, y: yPos, width: 200, height: cellHeight)
                     cellAttributesDictionary[cellIndexPath] = cellAttributes
                 }
                 if section != (collectionView!.numberOfSections)  {
                     cellAttributesDictionary[cellIndexPath] = cellAttributes
                 }
-
                 if item == 0 {
                     var frame = cellAttributes.frame
                     frame.origin.x = collectionView!.contentOffset.x
                     cellAttributes.frame = frame  // Stick to the left
                 }
-                
                 sectionAttributes.add(cellAttributes)
-                
             }
         }
         let contentHeight = CGFloat(collectionView!.numberOfSections) * cellHeight
@@ -100,8 +96,6 @@ class StandingsLayout: UICollectionViewLayout {
         }
         return attributesInRect
     }
-
-
     
     // reloads prepare layout when scrolling -- to stick the headers
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {

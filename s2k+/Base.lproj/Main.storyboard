@@ -200,17 +200,26 @@
                                                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&lt;show standings&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUj-ZA-n5e">
+                                                    <rect key="frame" x="133" y="93" width="188" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="mUj-ZA-n5e" firstAttribute="top" secondItem="GOY-cN-haR" secondAttribute="bottom" constant="20" id="2WO-Cs-JU8"/>
                                                 <constraint firstItem="NvG-Uh-mw3" firstAttribute="leading" secondItem="GOY-cN-haR" secondAttribute="trailing" constant="53" id="5lA-45-Y1o"/>
                                                 <constraint firstItem="kid-vx-B0x" firstAttribute="top" secondItem="F3W-31-VvL" secondAttribute="topMargin" constant="10" id="697-Gh-yIL"/>
+                                                <constraint firstItem="mUj-ZA-n5e" firstAttribute="leading" secondItem="yHS-CI-yDe" secondAttribute="trailing" constant="-11" id="6BX-0t-mlG"/>
                                                 <constraint firstItem="kid-vx-B0x" firstAttribute="leading" secondItem="GOY-cN-haR" secondAttribute="leading" id="6op-Fa-2Pi"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yHS-CI-yDe" secondAttribute="trailing" symbolic="YES" id="AVh-wN-sWw"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NvG-Uh-mw3" secondAttribute="trailing" constant="20" symbolic="YES" id="IsD-sI-9Nn"/>
                                                 <constraint firstItem="Dl2-en-uXT" firstAttribute="leading" secondItem="yHS-CI-yDe" secondAttribute="trailing" constant="74" id="KYk-oJ-dnn"/>
+                                                <constraint firstAttribute="bottom" secondItem="mUj-ZA-n5e" secondAttribute="bottom" id="Sf3-Ls-ZzN"/>
                                                 <constraint firstItem="c2H-aG-tfb" firstAttribute="top" secondItem="F3W-31-VvL" secondAttribute="top" constant="20" id="af2-Sn-4fw"/>
                                                 <constraint firstItem="0cF-Ra-0GS" firstAttribute="leading" secondItem="F3W-31-VvL" secondAttribute="leading" constant="7" id="aie-KS-pZ7"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dl2-en-uXT" secondAttribute="trailing" symbolic="YES" id="cNM-Hb-pPn"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dl2-en-uXT" secondAttribute="trailing" constant="20" symbolic="YES" id="cNM-Hb-pPn"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GOY-cN-haR" secondAttribute="trailing" symbolic="YES" id="ckB-kt-7Wf"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c2H-aG-tfb" secondAttribute="trailing" symbolic="YES" id="gyR-7w-hPe"/>
                                                 <constraint firstItem="c2H-aG-tfb" firstAttribute="leading" secondItem="kid-vx-B0x" secondAttribute="trailing" constant="28" id="h1R-aK-uE7"/>
@@ -220,6 +229,7 @@
                                                 <constraint firstItem="yHS-CI-yDe" firstAttribute="top" secondItem="GOY-cN-haR" secondAttribute="bottom" constant="5" id="lD4-Zz-BCo"/>
                                                 <constraint firstItem="0cF-Ra-0GS" firstAttribute="centerY" secondItem="F3W-31-VvL" secondAttribute="centerY" constant="2.6699999999999999" id="orw-2e-zmF"/>
                                                 <constraint firstItem="NvG-Uh-mw3" firstAttribute="centerY" secondItem="GOY-cN-haR" secondAttribute="centerY" id="sNS-sD-xAu"/>
+                                                <constraint firstAttribute="trailing" secondItem="mUj-ZA-n5e" secondAttribute="trailing" constant="31" id="wrW-H7-GzK"/>
                                                 <constraint firstItem="0cF-Ra-0GS" firstAttribute="top" secondItem="c2H-aG-tfb" secondAttribute="top" id="yei-Gz-idm"/>
                                                 <constraint firstItem="GOY-cN-haR" firstAttribute="top" secondItem="kid-vx-B0x" secondAttribute="bottom" constant="5" id="yr2-Kh-z4r"/>
                                             </constraints>
@@ -230,6 +240,7 @@
                                             <outlet property="divisionGender" destination="Dl2-en-uXT" id="avw-AZ-Fnc"/>
                                             <outlet property="divisionLogo" destination="0cF-Ra-0GS" id="EqD-T3-Ugc"/>
                                             <outlet property="divisionName" destination="c2H-aG-tfb" id="wM5-73-4p5"/>
+                                            <outlet property="divisionShowStandings" destination="mUj-ZA-n5e" id="eaw-1t-GPz"/>
                                             <segue destination="qLf-ff-wgq" kind="show" identifier="showTeamsVCSegue" id="3Dg-VS-3vk"/>
                                         </connections>
                                     </collectionViewCell>
@@ -361,15 +372,18 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbV-fP-Kwu">
-                                    <rect key="frame" x="8" y="832" width="398" height="44"/>
+                                    <rect key="frame" x="8" y="827" width="398" height="44"/>
                                     <items>
-                                        <barButtonItem title="Item" id="GyC-Hg-uyN"/>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fen-L7-iza"/>
+                                        <barButtonItem title="Past Games" image="book" catalog="system" id="GyC-Hg-uyN"/>
+                                        <barButtonItem title="Show Schedule" image="calendar" catalog="system" id="QKn-4O-0Pg"/>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="93t-cE-7yN"/>
                                     </items>
                                 </toolbar>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="nbV-fP-Kwu" secondAttribute="bottom" constant="20" id="124-nt-Ehq"/>
+                                <constraint firstAttribute="bottom" secondItem="nbV-fP-Kwu" secondAttribute="bottom" constant="25" id="124-nt-Ehq"/>
                                 <constraint firstItem="nbV-fP-Kwu" firstAttribute="leading" secondItem="IlV-Zh-OMe" secondAttribute="leading" constant="8" id="48g-GX-1y3"/>
                                 <constraint firstAttribute="trailing" secondItem="nbV-fP-Kwu" secondAttribute="trailing" constant="8" id="dEF-tY-Ucs"/>
                             </constraints>
@@ -409,6 +423,12 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="DYh-30-mVb">
                         <barButtonItem key="backBarButtonItem" id="EQb-LG-cvb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Help" image="questionmark" catalog="system" id="2GM-qy-CQ4">
+                            <connections>
+                                <action selector="teamHelp:" destination="qLf-ff-wgq" id="0fl-5O-pJJ"/>
+                                <segue destination="lHg-SY-9k5" kind="presentation" identifier="TeamHelpSegue" modalPresentationStyle="overCurrentContext" id="mDl-Cp-jgo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="teamsView" destination="MWf-kV-DlN" id="LyY-t8-Udc"/>
@@ -420,9 +440,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" catalog="system" width="64" height="50"/>
+        <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="questionmark" catalog="system" width="48" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ChS-Ms-5nM"/>
+        <segue reference="mDl-Cp-jgo"/>
     </inferredMetricsTieBreakers>
 </document>
