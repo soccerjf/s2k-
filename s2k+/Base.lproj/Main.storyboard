@@ -109,7 +109,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Leagues" id="aHU-fj-aV9">
-                        <barButtonItem key="backBarButtonItem" title="return to Leagues" id="Ahk-LO-EUv"/>
+                        <barButtonItem key="backBarButtonItem" title="Leagues" id="Ahk-LO-EUv"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="questionmark" catalog="system" id="SmX-H1-VcU">
                             <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -292,8 +292,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eia-Ho-a0o"/>
                     </view>
-                    <navigationItem key="navigationItem" id="T0Z-WZ-LaF">
-                        <barButtonItem key="backBarButtonItem" title="Return to Divisions" id="LdV-lk-3t5"/>
+                    <navigationItem key="navigationItem" title="Divisions" id="T0Z-WZ-LaF">
+                        <barButtonItem key="backBarButtonItem" title="Leagues" id="LdV-lk-3t5"/>
                         <barButtonItem key="rightBarButtonItem" title="Help" image="questionmark" catalog="system" id="kPY-HY-5Ks">
                             <connections>
                                 <action selector="divisionHelp:" destination="wA1-fi-0LD" id="02K-jO-9pr"/>
@@ -357,72 +357,80 @@
             </objects>
             <point key="canvasLocation" x="-425" y="-1264"/>
         </scene>
-        <!--TeamsVC-->
+        <!--Teams-->
         <scene sceneID="jy6-u1-SE2">
             <objects>
                 <viewController id="qLf-ff-wgq" customClass="TeamsVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="MWf-kV-DlN">
+                    <view key="view" contentMode="scaleToFill" id="8LN-nY-9hb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="110"/>
-                        <collectionViewLayout key="collectionViewLayout" id="bcg-NP-XLp" customClass="StandingsLayout" customModule="s2k_" customModuleProvider="target"/>
-                        <view key="backgroundView" contentMode="scaleToFill" id="IlV-Zh-OMe">
-                            <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbV-fP-Kwu">
-                                    <rect key="frame" x="8" y="827" width="398" height="44"/>
-                                    <items>
-                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="fen-L7-iza"/>
-                                        <barButtonItem title="Past Games" image="book" catalog="system" id="GyC-Hg-uyN"/>
-                                        <barButtonItem title="Show Schedule" image="calendar" catalog="system" id="QKn-4O-0Pg"/>
-                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="93t-cE-7yN"/>
-                                    </items>
-                                </toolbar>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="nbV-fP-Kwu" secondAttribute="bottom" constant="25" id="124-nt-Ehq"/>
-                                <constraint firstItem="nbV-fP-Kwu" firstAttribute="leading" secondItem="IlV-Zh-OMe" secondAttribute="leading" constant="8" id="48g-GX-1y3"/>
-                                <constraint firstAttribute="trailing" secondItem="nbV-fP-Kwu" secondAttribute="trailing" constant="8" id="dEF-tY-Ucs"/>
-                            </constraints>
-                        </view>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCell" id="8lX-Wa-ikx" customClass="TeamCell" customModule="s2k_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ycx-TI-97U">
-                                    <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYo-dO-l0a">
-                                            <rect key="frame" x="8" y="8" width="184" height="20"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="vYo-dO-l0a" secondAttribute="bottom" constant="2" id="0Ke-5e-Dl0"/>
-                                        <constraint firstAttribute="trailing" secondItem="vYo-dO-l0a" secondAttribute="trailing" constant="8" id="NeI-dd-IlV"/>
-                                        <constraint firstItem="vYo-dO-l0a" firstAttribute="top" secondItem="ycx-TI-97U" secondAttribute="top" constant="8" id="W17-dW-ZZH"/>
-                                        <constraint firstItem="vYo-dO-l0a" firstAttribute="leading" secondItem="ycx-TI-97U" secondAttribute="leading" constant="8" id="o1p-xO-Uon"/>
-                                    </constraints>
-                                </collectionViewCellContentView>
-                                <size key="customSize" width="200" height="30"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3M0-28-1e8">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F9Y-Cr-C4o" customClass="StandingsLayout" customModule="s2k_" customModuleProvider="target">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCell" id="YPK-5F-RQb" customClass="TeamCell" customModule="s2k_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oen-zd-KoK">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMP-Y9-cVE">
+                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WMP-Y9-cVE" firstAttribute="top" secondItem="oen-zd-KoK" secondAttribute="top" constant="8" id="Nwl-tq-NCs"/>
+                                                <constraint firstAttribute="trailing" secondItem="WMP-Y9-cVE" secondAttribute="trailing" constant="8" id="h8G-Gr-h4c"/>
+                                                <constraint firstAttribute="bottom" secondItem="WMP-Y9-cVE" secondAttribute="bottom" constant="8" id="i6S-ES-U2N"/>
+                                                <constraint firstItem="WMP-Y9-cVE" firstAttribute="leading" secondItem="oen-zd-KoK" secondAttribute="leading" constant="8" id="y1u-nd-7hq"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="anyLabel" destination="WMP-Y9-cVE" id="Fdl-d7-J4k"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="anyLabel" destination="vYo-dO-l0a" id="hHc-Dd-LhE"/>
+                                    <outlet property="dataSource" destination="qLf-ff-wgq" id="tok-ob-laN"/>
+                                    <outlet property="delegate" destination="qLf-ff-wgq" id="P0H-dE-6nX"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="qLf-ff-wgq" id="3FZ-yR-3E5"/>
-                            <outlet property="delegate" destination="qLf-ff-wgq" id="aN5-9D-1V0"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="DYh-30-mVb">
-                        <barButtonItem key="backBarButtonItem" id="EQb-LG-cvb"/>
+                            </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-86-6tP">
+                                <rect key="frame" x="8" y="823" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tMP-oK-cxg"/>
+                                    <barButtonItem title="Schedule" image="calendar" catalog="system" id="5eB-k1-D5H"/>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="7ky-qC-9tc"/>
+                                    <barButtonItem title="Past Games" image="book" catalog="system" id="URJ-4L-Sc5"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="D29-4O-U57"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XBd-Xc-Tls" firstAttribute="bottom" secondItem="3M0-28-1e8" secondAttribute="bottom" id="DtR-qP-T0X"/>
+                            <constraint firstItem="3M0-28-1e8" firstAttribute="top" secondItem="XBd-Xc-Tls" secondAttribute="top" id="F4F-fX-oQL"/>
+                            <constraint firstItem="Wqg-86-6tP" firstAttribute="trailing" secondItem="XBd-Xc-Tls" secondAttribute="trailing" constant="8" id="K7x-qm-x8B"/>
+                            <constraint firstItem="Wqg-86-6tP" firstAttribute="bottom" secondItem="XBd-Xc-Tls" secondAttribute="bottom" constant="10" id="TG1-rf-fgy"/>
+                            <constraint firstItem="Wqg-86-6tP" firstAttribute="leading" secondItem="XBd-Xc-Tls" secondAttribute="leading" constant="8" id="UZP-Y8-Iwc"/>
+                            <constraint firstItem="XBd-Xc-Tls" firstAttribute="trailing" secondItem="3M0-28-1e8" secondAttribute="trailing" id="Y5p-Q2-nwO"/>
+                            <constraint firstItem="3M0-28-1e8" firstAttribute="leading" secondItem="XBd-Xc-Tls" secondAttribute="leading" id="sab-5i-q9c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XBd-Xc-Tls"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Teams" id="DYh-30-mVb">
+                        <barButtonItem key="backBarButtonItem" title="Divisions" id="SF1-WZ-30C"/>
                         <barButtonItem key="rightBarButtonItem" title="Help" image="questionmark" catalog="system" id="2GM-qy-CQ4">
                             <connections>
                                 <action selector="teamHelp:" destination="qLf-ff-wgq" id="0fl-5O-pJJ"/>
@@ -431,7 +439,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="teamsView" destination="MWf-kV-DlN" id="LyY-t8-Udc"/>
+                        <outlet property="gridLayout" destination="F9Y-Cr-C4o" id="5vb-ix-5Oe"/>
+                        <outlet property="showPastGamesItem" destination="URJ-4L-Sc5" id="kyc-Hm-Qdc"/>
+                        <outlet property="showScheduleItem" destination="5eB-k1-D5H" id="V3E-B4-Wkc"/>
+                        <outlet property="teamsView" destination="3M0-28-1e8" id="k8q-VK-OWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZO-TC-p1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -18,13 +18,29 @@ class TeamsVC: UIViewController {
     var previousPoints = ""
     var previousRank = ""
     var teamRank = ""
+    var lastSelectedTeam = IndexPath(row: 0, section: 0)
+    var teamID = 0
+    var teamName = ""
     private var request: AnyObject?
     let networkActivity = NetworkActivity(text: "Fetching Teams")
     
     @IBAction func teamHelp(_ sender: Any) {
         performSegue(withIdentifier: "TeamHelpSegue", sender: nil)
     }
-    @IBOutlet var teamsView: UICollectionView!
+    @IBOutlet weak var gridLayout: StandingsLayout! {
+        didSet {
+            gridLayout.stickyRowsCount = 1
+            gridLayout.stickyColumnsCount = 1
+        }
+    }
+
+    @IBOutlet weak var showPastGamesItem: UIBarButtonItem!
+    @IBOutlet weak var showScheduleItem: UIBarButtonItem!
+    @IBOutlet weak var teamsView: UICollectionView!{
+        didSet {
+            teamsView.bounces = false
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +54,11 @@ class TeamsVC: UIViewController {
         self.view.addSubview(networkActivity)
         fetchData(source: DataSource.source, dataType: "1", dataTypeDetail: divID)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        showScheduleItem.isEnabled = false
+        showPastGamesItem.isEnabled = false
+    }
+    
 }
 // MARK: - Collection view data source and delegate methods
 
@@ -84,7 +105,6 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.anyLabel.text = ""
             }
             if indexPath.item > 0 {
-                cell.anyLabel.textAlignment = .center
                 if showStandings != "Yes" {
                     cell.anyLabel.text = ""
                 }
@@ -97,6 +117,11 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 previousPoints = ""
             }
             if indexPath.item == 1 {
+                if previousRank == "15th" && fetchedTeams[currentRow].teamPoints != previousPoints {
+                    teamRank = "16th"
+                    previousRank = "16th"
+                    previousPoints = fetchedTeams[currentRow].teamPoints
+                }
                 if previousRank == "14th" && fetchedTeams[currentRow].teamPoints != previousPoints {
                     teamRank = "15th"
                     previousRank = "15th"
@@ -243,22 +268,30 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 }
                 return lastFiveCell
             }
-            if indexPath.item > 0 {
+            if indexPath.item > 1 {
                 cell.anyLabel.textAlignment = .right
                 cell.backgroundColor = UIColor.white
                 cell.anyLabel.textColor = UIColor.black
                 if showStandings != "Yes" {
                     cell.anyLabel.text = ""
                 }
-            } else if indexPath.item == 1 {
+            } else if indexPath.item == 1 {     //rank column
                 cell.backgroundColor = UIColor(red:0.95, green:0.93, blue:0.93, alpha:1.0)
                 cell.anyLabel.textColor = UIColor.darkGray
                 cell.anyLabel.font = UIFont.italicSystemFont(ofSize: 12)
+                cell.anyLabel.textAlignment = .center
+                if showStandings != "Yes" {
+                    cell.anyLabel.text = ""
+                    cell.backgroundColor = UIColor.white
+                    cell.anyLabel.textColor = UIColor.black
+                }
             } else if indexPath.item == 0 {
                 cell.backgroundColor = UIColor.white
                 cell.anyLabel.textColor = UIColor.black
+                cell.anyLabel.textAlignment = .left
             }
         }
+
         return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -274,12 +307,22 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             }
         }
     }
-}
-
-extension TeamsVC: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        if lastSelectedTeam.section != 0 {
+            let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
+            lastCell?.layer.borderWidth = 0.1
+            lastCell?.layer.borderColor = UIColor.lightGray.cgColor
+        }
+        teamID = Int(fetchedTeams[indexPath[0]-1].teamID)!
+        teamName = fetchedTeams[indexPath[0]-1].teamName
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.green.cgColor
+        lastSelectedTeam = indexPath
+        showScheduleItem.isEnabled = true
+        if showStandings == "Yes" {
+            showPastGamesItem.isEnabled = true
+        }
     }
 }
 

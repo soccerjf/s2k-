@@ -10,8 +10,9 @@ import UIKit
 
 @IBDesignable
 class TeamCell: UICollectionViewCell {
+
     @IBOutlet weak var anyLabel: UILabel!
-// Mark: style the table with rounded headings and borders
+    // Mark: style the table with rounded headings and borders
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         setup()

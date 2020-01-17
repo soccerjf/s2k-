@@ -18,7 +18,7 @@ struct League {
     let leagueStart: String
     let leagueEnd: String
     let leagueLogoURL: URL
-    let seeDate: String
+    let leagueSeeDate: String
     let divisions: [Division?]
 }
 
@@ -29,7 +29,7 @@ extension League: Decodable {
         case leagueStart
         case leagueEnd
         case leagueLogoURL
-        case seeDate
+        case leagueSeeDate
         case divisions
     }
 }
