@@ -43,7 +43,6 @@ class TeamsVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let nibLastGames = UINib(nibName: "LastFiveGamesCell", bundle: nil)
         teamsView.register(nibLastGames, forCellWithReuseIdentifier: "LastFiveGamesCell")
         if showStandings != "Yes" {
@@ -306,6 +305,21 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 dest.sourceID = "Team"
             }
         }
+        if segue.identifier == "PastGamesSegue" {
+            let backButton = UIBarButtonItem()
+            backButton.title = "Teams"
+            navigationItem.backBarButtonItem = backButton
+            let cell = teamsView.cellForItem(at: lastSelectedTeam)
+            cell?.layer.borderWidth = 0.0
+            cell?.layer.borderColor = UIColor.white.cgColor
+            let dest = segue.destination as? PastGamesVC
+            let tempGames = self.fetchedTeams[lastSelectedTeam.row].teamSchedule
+            let playedGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! }
+            dest?.games = playedGames as! [Schedule] //self.fetchedTeams[lastSelectedTeam.row].teamSchedule as! [Schedule]
+            dest?.teamName = self.fetchedTeams[lastSelectedTeam.row].teamName
+            dest?.teamID = self.fetchedTeams[lastSelectedTeam.row].teamID
+                        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         if lastSelectedTeam.section != 0 {
@@ -337,7 +351,7 @@ private extension TeamsVC {
         teamRequest.load { [weak self] (teams: [Team]?) in
         guard ((self?.fetchedTeams = teams!) != nil)
              else {
-                //TODO: proper reporting
+                #warning ("proper reporting")
                 print("Error in fetchData - Teams")
                 return
         }

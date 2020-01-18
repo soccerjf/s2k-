@@ -72,6 +72,8 @@ struct Team {
     let teamLastGameC: String
     let teamLastGameD: String
     let teamLastGameE: String
+    let teamLogo: URL?
+    let teamSchedule: [Schedule?]
 }
 
 extension Team: Decodable {
@@ -91,12 +93,16 @@ extension Team: Decodable {
         case teamLastGameC
         case teamLastGameD
         case teamLastGameE
+        case teamLogo
+        case teamSchedule
     }
 }
 
 struct Schedule {
     let gameID: String
     let gameNo: String
+    let gameHomeTeamID: String
+    let gameAwayTeamID: String
     let gameDate: String
     let gameTime: String
     let gameLocation: String
@@ -116,6 +122,8 @@ extension Schedule: Decodable {
     enum CodingKeys: String, CodingKey {
         case gameID
         case gameNo
+        case gameHomeTeamID
+        case gameAwayTeamID
         case gameDate
         case gameTime
         case gameLocation

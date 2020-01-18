@@ -150,7 +150,7 @@ private extension LeagueVC {
         leagueRequest.load { [weak self] (leagues: [League]?) in
             guard ((self?.fetchedLeagues = leagues!) != nil)
                  else {
-                    //TODO: proper reporting
+                    #warning ("proper reporting")
                     print("Error in fetchData - Leagues")
                     return
             }
@@ -159,16 +159,4 @@ private extension LeagueVC {
         }
     }
 
-}
-extension UIViewController
-{
-    func alert(message: String, title: String = "") {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(OKAction)
-        
-        DispatchQueue.main.async  {
-               self.present(alertController, animated: true, completion: nil)
-        }
-    }
 }
