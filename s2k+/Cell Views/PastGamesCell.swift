@@ -14,4 +14,5 @@ class PastGamesCell: UICollectionViewCell {
     @IBOutlet weak var gameOpponent: UILabel!
     @IBOutlet weak var gameSelectedTeamScore: UILabel!
     @IBOutlet weak var gameOpponentTeamScore: UILabel!
+    @IBOutlet weak var gameResults: UILabel!
 }
