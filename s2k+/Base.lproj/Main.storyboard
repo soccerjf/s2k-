@@ -416,7 +416,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="7ky-qC-9tc"/>
-                                    <barButtonItem title="Schedule" image="calendar" catalog="system" id="URJ-4L-Sc5"/>
+                                    <barButtonItem title="Schedule" image="calendar" catalog="system" id="URJ-4L-Sc5">
+                                        <connections>
+                                            <segue destination="qGK-Mf-5sP" kind="show" identifier="ScheduleSegue" id="6sd-3z-WPE"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D29-4O-U57"/>
                                 </items>
                             </toolbar>
@@ -619,6 +623,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yH-uc-J9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1686.9565217391305" y="-238.39285714285714"/>
+        </scene>
+        <!--ScheduleVC-->
+        <scene sceneID="zIB-Yn-wTy">
+            <objects>
+                <viewController id="qGK-Mf-5sP" customClass="ScheduleVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cf7-fe-Noi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="GxQ-vM-H6T"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="L7G-s0-kcR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldV-AJ-orJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1259" y="-1273"/>
         </scene>
     </scenes>
     <resources>

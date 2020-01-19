@@ -313,29 +313,31 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             cell?.layer.borderWidth = 0.0
             cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? PastGamesVC
-            let tempGames = self.fetchedTeams[lastSelectedTeam.row].teamSchedule
+            let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
             let playedGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! }
-            dest?.games = playedGames as! [Schedule] //self.fetchedTeams[lastSelectedTeam.row].teamSchedule as! [Schedule]
-            dest?.teamName = self.fetchedTeams[lastSelectedTeam.row].teamName
-            dest?.teamID = self.fetchedTeams[lastSelectedTeam.row].teamID
+            dest?.games = playedGames as! [Schedule]
+            dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
+            dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
                         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        if lastSelectedTeam.section != 0 {
-            let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
-            lastCell?.layer.borderWidth = 0.1
-            lastCell?.layer.borderColor = UIColor.lightGray.cgColor
-        }
         teamID = Int(fetchedTeams[indexPath[0]-1].teamID)!
-        teamName = fetchedTeams[indexPath[0]-1].teamName
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.green.cgColor
-        lastSelectedTeam = indexPath
-        showScheduleItem.isEnabled = true
-        if showStandings == "Yes" {
-            showPastGamesItem.isEnabled = true
+        if teamID != 0 {
+            if lastSelectedTeam.section != 0 {
+                let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
+                lastCell?.layer.borderWidth = 0.1
+                lastCell?.layer.borderColor = UIColor.lightGray.cgColor
+            }
+            teamName = fetchedTeams[indexPath[0]-1].teamName
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderColor = UIColor.green.cgColor
+            lastSelectedTeam = indexPath
+            showScheduleItem.isEnabled = true
+            if showStandings == "Yes" {
+                showPastGamesItem.isEnabled = true
+            }
         }
     }
 }
