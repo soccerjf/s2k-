@@ -10,17 +10,11 @@ import UIKit
 
 class StandingsLayout: UICollectionViewFlowLayout {
 
-//    var barHeight: CGFloat {
-//        let height = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-//        return UINavigationController().navigationBar.frame.size.height + height
-//    }
-    
     var stickyRowsCount = 0 {
         didSet {
             invalidateLayout()
         }
     }
-
     var stickyColumnsCount = 0 {
         didSet {
             invalidateLayout()

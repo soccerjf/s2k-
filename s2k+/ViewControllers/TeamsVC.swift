@@ -12,6 +12,8 @@ class TeamsVC: UIViewController {
 //MARK: read data from division selection
     var divID = ""
     var divName = ""
+    var divAgeGroup = ""
+    var divGender = ""
     var showStandings = "Yes"
     var fetchedTeams = [Team]()
     var currentRow = 0
@@ -43,13 +45,11 @@ class TeamsVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let nibLastGames = UINib(nibName: "LastFiveGamesCell", bundle: nil)
         teamsView.register(nibLastGames, forCellWithReuseIdentifier: "LastFiveGamesCell")
-        if showStandings != "Yes" {
-            navigationItem.title = "Teams In The Division"
-        } else {
-            navigationItem.title = "Team Standings"
-        }
+        navigationItem.title = divName + " " + divAgeGroup + divGender
+
         self.view.addSubview(networkActivity)
         fetchData(source: DataSource.source, dataType: "1", dataTypeDetail: divID)
     }
@@ -57,7 +57,6 @@ class TeamsVC: UIViewController {
         showScheduleItem.isEnabled = false
         showPastGamesItem.isEnabled = false
     }
-    
 }
 // MARK: - Collection view data source and delegate methods
 
@@ -293,6 +292,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
         return cell
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "TeamHelpSegue" && self.showStandings == "Yes" {
@@ -319,6 +319,9 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
             dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
                         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+        }
+        if segue.identifier == "ScheduleSegue" {
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
@@ -362,3 +365,4 @@ private extension TeamsVC {
         }
     }
 }
+
