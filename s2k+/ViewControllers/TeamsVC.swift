@@ -318,10 +318,22 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             dest?.games = playedGames as! [Schedule]
             dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
             dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
-                        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
         }
         if segue.identifier == "ScheduleSegue" {
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+            let backButton = UIBarButtonItem()
+            backButton.title = "Teams"
+            navigationItem.backBarButtonItem = backButton
+            let cell = teamsView.cellForItem(at: lastSelectedTeam)
+            cell?.layer.borderWidth = 0.0
+            cell?.layer.borderColor = UIColor.white.cgColor
+            let dest = segue.destination as? ScheduleVC
+            let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
+            let scheduledGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! == false }
+            dest?.games = scheduledGames as! [Schedule]
+            dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
+            dest?.teamName =  self.fetchedTeams[lastSelectedTeam[0]-1].teamName 
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
