@@ -742,10 +742,24 @@
                     <view key="view" contentMode="scaleToFill" id="m3R-hr-DPG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-qC-q0V">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="98p-cl-MGb" firstAttribute="bottom" secondItem="Y5p-qC-q0V" secondAttribute="bottom" id="6HP-J7-0TK"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="leading" secondItem="98p-cl-MGb" secondAttribute="leading" id="Wwc-Tg-PlM"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="top" secondItem="98p-cl-MGb" secondAttribute="top" id="odn-4Z-T7K"/>
+                            <constraint firstItem="98p-cl-MGb" firstAttribute="trailing" secondItem="Y5p-qC-q0V" secondAttribute="trailing" id="svm-EA-8yp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="98p-cl-MGb"/>
                     </view>
                     <navigationItem key="navigationItem" id="kUY-sm-AdY"/>
+                    <connections>
+                        <outlet property="mapView" destination="Y5p-qC-q0V" id="ffh-y3-7Ka"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7S-Du-KJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

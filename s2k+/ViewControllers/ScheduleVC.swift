@@ -55,6 +55,10 @@ class ScheduleVC: UITableViewController {
                 }))
                 present(alert, animated: true, completion: nil)
             } else {
+                let dest = segue.destination as? MapVC
+                dest?.latitude = self.latitude
+                dest?.longitude = self.longitude
+//                dest?.teamName =  self.fetchedTeams[lastSelectedTeam[0]-1].teamName
 //                let cell = collectionView.cellForItem(at: indexPath)
 //                if let mapIcon = cell!.viewWithTag(450) as? UIButton {
 //                    mapIcon.isHidden = false

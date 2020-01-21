@@ -10,6 +10,7 @@
 		BF5542DA23D797AD005E6D4E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5542D923D797AD005E6D4E /* MapVC.swift */; };
 		BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */; };
 		BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA47C4123CEB2510033DDA0 /* TeamCell.swift */; };
+		BFAC023D23D7B25A00F9A47C /* FieldDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC023C23D7B25A00F9A47C /* FieldDetails.swift */; };
 		BFB36CF623D25D9C00E453A4 /* PastGamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */; };
 		BFB36CF823D352EF00E453A4 /* PastGamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB36CF723D352EF00E453A4 /* PastGamesCell.swift */; };
 		BFB36CFA23D4B7FF00E453A4 /* ScheduleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB36CF923D4B7FF00E453A4 /* ScheduleVC.swift */; };
@@ -39,6 +40,7 @@
 		BF5542D923D797AD005E6D4E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionSectionHeaderView.swift; sourceTree = "<group>"; };
 		BFA47C4123CEB2510033DDA0 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		BFAC023C23D7B25A00F9A47C /* FieldDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetails.swift; sourceTree = "<group>"; };
 		BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesVC.swift; sourceTree = "<group>"; };
 		BFB36CF723D352EF00E453A4 /* PastGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesCell.swift; sourceTree = "<group>"; };
 		BFB36CF923D4B7FF00E453A4 /* ScheduleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVC.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				BFD833C923C919E200F3EA9B /* NetworkActivity.swift */,
 				BFD833C723C9150400F3EA9B /* NetworkServices.swift */,
 				BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */,
+				BFAC023C23D7B25A00F9A47C /* FieldDetails.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				BFB36CF623D25D9C00E453A4 /* PastGamesVC.swift in Sources */,
 				BFC17CC923CA1CAA008AAF4D /* HelpVC.swift in Sources */,
 				BFD833B423C8D7E400F3EA9B /* LeagueVC.swift in Sources */,
+				BFAC023D23D7B25A00F9A47C /* FieldDetails.swift in Sources */,
 				BFD833B023C8D7E400F3EA9B /* AppDelegate.swift in Sources */,
 				BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */,
 				BFD833C623C9144A00F3EA9B /* DataModels.swift in Sources */,
