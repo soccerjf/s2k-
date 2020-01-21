@@ -94,6 +94,8 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
             dest?.divID = division[index].divID
             dest?.divName = division[index].divName
             dest?.showStandings = division[index].showStandings
+            dest?.divAgeGroup = division[index].divAgeGroup
+            dest?.divGender = division[index].divGender
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "Divisions", style: .plain, target: nil, action: nil)
         }
         if segue.identifier == "DivisionHelpSegue" {

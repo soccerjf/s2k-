@@ -12,6 +12,8 @@ class TeamsVC: UIViewController {
 //MARK: read data from division selection
     var divID = ""
     var divName = ""
+    var divAgeGroup = ""
+    var divGender = ""
     var showStandings = "Yes"
     var fetchedTeams = [Team]()
     var currentRow = 0
@@ -43,13 +45,11 @@ class TeamsVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let nibLastGames = UINib(nibName: "LastFiveGamesCell", bundle: nil)
         teamsView.register(nibLastGames, forCellWithReuseIdentifier: "LastFiveGamesCell")
-        if showStandings != "Yes" {
-            navigationItem.title = "Teams In The Division"
-        } else {
-            navigationItem.title = "Team Standings"
-        }
+        navigationItem.title = divName + " " + divAgeGroup + divGender
+
         self.view.addSubview(networkActivity)
         fetchData(source: DataSource.source, dataType: "1", dataTypeDetail: divID)
     }
@@ -57,7 +57,6 @@ class TeamsVC: UIViewController {
         showScheduleItem.isEnabled = false
         showPastGamesItem.isEnabled = false
     }
-    
 }
 // MARK: - Collection view data source and delegate methods
 
@@ -293,6 +292,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
         return cell
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "TeamHelpSegue" && self.showStandings == "Yes" {
@@ -313,29 +313,46 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             cell?.layer.borderWidth = 0.0
             cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? PastGamesVC
-            let tempGames = self.fetchedTeams[lastSelectedTeam.row].teamSchedule
-            let playedGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! }
-            dest?.games = playedGames as! [Schedule] //self.fetchedTeams[lastSelectedTeam.row].teamSchedule as! [Schedule]
-            dest?.teamName = self.fetchedTeams[lastSelectedTeam.row].teamName
-            dest?.teamID = self.fetchedTeams[lastSelectedTeam.row].teamID
-                        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+            let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
+            let playedGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! == false }
+            dest?.games = playedGames as! [Schedule]
+            dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
+            dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+        }
+        if segue.identifier == "ScheduleSegue" {
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
+            let backButton = UIBarButtonItem()
+            backButton.title = "Teams"
+            navigationItem.backBarButtonItem = backButton
+            let cell = teamsView.cellForItem(at: lastSelectedTeam)
+            cell?.layer.borderWidth = 0.0
+            cell?.layer.borderColor = UIColor.white.cgColor
+            let dest = segue.destination as? ScheduleVC
+            let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
+            let scheduledGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! }
+            dest?.games = scheduledGames as! [Schedule]
+            dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
+            dest?.teamName =  self.fetchedTeams[lastSelectedTeam[0]-1].teamName 
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        if lastSelectedTeam.section != 0 {
-            let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
-            lastCell?.layer.borderWidth = 0.1
-            lastCell?.layer.borderColor = UIColor.lightGray.cgColor
-        }
         teamID = Int(fetchedTeams[indexPath[0]-1].teamID)!
-        teamName = fetchedTeams[indexPath[0]-1].teamName
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.green.cgColor
-        lastSelectedTeam = indexPath
-        showScheduleItem.isEnabled = true
-        if showStandings == "Yes" {
-            showPastGamesItem.isEnabled = true
+        if teamID != 0 {
+            if lastSelectedTeam.section != 0 {
+                let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
+                lastCell?.layer.borderWidth = 0.1
+                lastCell?.layer.borderColor = UIColor.lightGray.cgColor
+            }
+            teamName = fetchedTeams[indexPath[0]-1].teamName
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderColor = UIColor.green.cgColor
+            lastSelectedTeam = indexPath
+            showScheduleItem.isEnabled = true
+            if showStandings == "Yes" {
+                showPastGamesItem.isEnabled = true
+            }
         }
     }
 }
@@ -360,3 +377,4 @@ private extension TeamsVC {
         }
     }
 }
+

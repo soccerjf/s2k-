@@ -30,7 +30,6 @@ class LeagueVC: UITableViewController  {
                 self.tableView.reloadData()
             }
         }
-
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
@@ -62,11 +61,9 @@ class LeagueVC: UITableViewController  {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 1 : fetchedLeagues.count
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueCell
@@ -84,16 +81,14 @@ class LeagueVC: UITableViewController  {
                 cell.leagueName.text = "Internet Status: Not Connected"
                 cell.leagueEndDateLabel.text = ""
                 cell.leagueEndDate.text = ""
-
             }
             cell.leagueStartDate.text = ""
 
             cell.leagueStartDateLabel.text = ""
         case 1:
-            let leagueData = fetchedLeagues[indexPath.row]
-            cell.leagueName.text = leagueData.leagueName
-            cell.leagueStartDate.text = leagueData.leagueStart
-            cell.leagueEndDate.text = leagueData.leagueEnd
+            cell.leagueName.text = fetchedLeagues[indexPath.row].leagueName
+            cell.leagueStartDate.text = fetchedLeagues[indexPath.row].leagueStart
+            cell.leagueEndDate.text = fetchedLeagues[indexPath.row].leagueEnd
 
             if let leagueLogo = cell.leagueLogo {
                 leagueLogo.kf.setImage(with: self.fetchedLeagues[indexPath.row].leagueLogoURL)
@@ -105,16 +100,12 @@ class LeagueVC: UITableViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDivisionVCSegue" {
-            guard
-              let selectedCell = sender as? UITableViewCell,
-              let index = tableView.indexPath(for: selectedCell)?.row, segue.identifier == "showDivisionVCSegue"
-              else {
-                fatalError("sender is not a UITableViewCell or was not found in the tableView, or segue.identifier is incorrect")
-            }
+            let selectedCell = sender as? UITableViewCell
+            let index = tableView.indexPath(for: selectedCell!)?.row
             let dest = segue.destination as? DivisionVC
-            dest?.leagueID = fetchedLeagues[index].leagueID
-            dest?.leagueName = fetchedLeagues[index].leagueName
-            dest?.division = fetchedLeagues[index].divisions as! [Division]
+            dest?.leagueID = fetchedLeagues[index!].leagueID
+            dest?.leagueName = fetchedLeagues[index!].leagueName
+            dest?.division = fetchedLeagues[index!].divisions as! [Division]
         }
         if segue.identifier == "LeagueHelpSegue" {
             if let dest = segue.destination as? HelpVC {
