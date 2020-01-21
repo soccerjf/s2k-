@@ -30,7 +30,6 @@ class LeagueVC: UITableViewController  {
                 self.tableView.reloadData()
             }
         }
-
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
@@ -101,16 +100,12 @@ class LeagueVC: UITableViewController  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDivisionVCSegue" {
-            guard
-              let selectedCell = sender as? UITableViewCell,
-              let index = tableView.indexPath(for: selectedCell)?.row, segue.identifier == "showDivisionVCSegue"
-              else {
-                fatalError("sender is not a UITableViewCell or was not found in the tableView, or segue.identifier is incorrect")
-            }
+            let selectedCell = sender as? UITableViewCell
+            let index = tableView.indexPath(for: selectedCell!)?.row
             let dest = segue.destination as? DivisionVC
-            dest?.leagueID = fetchedLeagues[index].leagueID
-            dest?.leagueName = fetchedLeagues[index].leagueName
-            dest?.division = fetchedLeagues[index].divisions as! [Division]
+            dest?.leagueID = fetchedLeagues[index!].leagueID
+            dest?.leagueName = fetchedLeagues[index!].leagueName
+            dest?.division = fetchedLeagues[index!].divisions as! [Division]
         }
         if segue.identifier == "LeagueHelpSegue" {
             if let dest = segue.destination as? HelpVC {

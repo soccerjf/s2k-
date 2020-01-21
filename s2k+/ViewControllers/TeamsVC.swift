@@ -314,7 +314,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? PastGamesVC
             let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
-            let playedGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! }
+            let playedGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! == false }
             dest?.games = playedGames as! [Schedule]
             dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
             dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
@@ -330,7 +330,7 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? ScheduleVC
             let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
-            let scheduledGames = tempGames.filter{ ($0?.gameStatus.contains("1"))! == false }
+            let scheduledGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! }
             dest?.games = scheduledGames as! [Schedule]
             dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
             dest?.teamName =  self.fetchedTeams[lastSelectedTeam[0]-1].teamName 

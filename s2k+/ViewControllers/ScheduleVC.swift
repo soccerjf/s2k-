@@ -15,9 +15,11 @@ class ScheduleVC: UITableViewController {
     var games = [Schedule]()
     var cupGame = ""
     var homeOrAway = ""
-    
+    var latitude = 0.000
+    var longitude = 0.000
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = teamName
     }
     // MARK: set the section info
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -27,7 +29,7 @@ class ScheduleVC: UITableViewController {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
         let label = UILabel()
         label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
-        label.text = "Tap on Map Icon to see directions to the field"
+        label.text = "Tap on the Field Name to see directions to the field"
         label.textAlignment = .center
         label.textColor = UIColor.orange
         label.font = UIFont(name: "chalkduster", size: 14)
@@ -38,6 +40,24 @@ class ScheduleVC: UITableViewController {
         if segue.identifier == "ScheduleHelpSegue" {
             if let dest = segue.destination as? HelpVC {
                 dest.sourceID = "Schedule"
+            }
+        }
+        if segue.identifier == "showMapVCSegue" {
+            let selectedCell = (sender as? UITableViewCell)!
+            let index = tableView.indexPath(for: selectedCell)?.row
+            self.longitude = Double(games[index!].gameLat) ?? 0.000
+            self.latitude = Double(games[index!].gameLong) ?? 0.000
+            if longitude == 0.00 || latitude == 0.00 {
+                let alert = UIAlertController(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                present(alert, animated: true, completion: nil)
+            } else {
+//                let cell = collectionView.cellForItem(at: indexPath)
+//                if let mapIcon = cell!.viewWithTag(450) as? UIButton {
+//                    mapIcon.isHidden = false
             }
         }
     }
@@ -56,8 +76,10 @@ class ScheduleVC: UITableViewController {
         cell.gameTime.text = games[indexPath.row].gameTime
         if teamID == games[indexPath.row].gameHomeTeamID {
             cell.gameOpponent.text = games[indexPath.row].gameAwayTeam
+            cell.gameDate.text! += " (Home)"
         } else {
             cell.gameOpponent.text = games[indexPath.row].gameHomeTeam
+            cell.gameDate.text! += " (Away)"
         }
         cell.gameField.text = games[indexPath.row].gameLocation
         return cell

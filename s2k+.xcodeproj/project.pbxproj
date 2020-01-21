@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF5542DA23D797AD005E6D4E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5542D923D797AD005E6D4E /* MapVC.swift */; };
 		BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */; };
 		BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA47C4123CEB2510033DDA0 /* TeamCell.swift */; };
 		BFB36CF623D25D9C00E453A4 /* PastGamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF5542D923D797AD005E6D4E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionSectionHeaderView.swift; sourceTree = "<group>"; };
 		BFA47C4123CEB2510033DDA0 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesVC.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */,
 				BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */,
 				BFB36CF923D4B7FF00E453A4 /* ScheduleVC.swift */,
+				BF5542D923D797AD005E6D4E /* MapVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				BFC17CCB23CA2887008AAF4D /* DivisionVC.swift in Sources */,
 				BFD833C823C9150400F3EA9B /* NetworkServices.swift in Sources */,
 				BFB36CF823D352EF00E453A4 /* PastGamesCell.swift in Sources */,
+				BF5542DA23D797AD005E6D4E /* MapVC.swift in Sources */,
 				BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */,
 				BFB36CF623D25D9C00E453A4 /* PastGamesVC.swift in Sources */,
 				BFC17CC923CA1CAA008AAF4D /* HelpVC.swift in Sources */,
