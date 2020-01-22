@@ -744,15 +744,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y5p-qC-q0V">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="8" y="96" width="414" height="774"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="98p-cl-MGb" firstAttribute="bottom" secondItem="Y5p-qC-q0V" secondAttribute="bottom" id="6HP-J7-0TK"/>
-                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="leading" secondItem="98p-cl-MGb" secondAttribute="leading" id="Wwc-Tg-PlM"/>
-                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="top" secondItem="98p-cl-MGb" secondAttribute="top" id="odn-4Z-T7K"/>
-                            <constraint firstItem="98p-cl-MGb" firstAttribute="trailing" secondItem="Y5p-qC-q0V" secondAttribute="trailing" id="svm-EA-8yp"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="bottom" secondItem="98p-cl-MGb" secondAttribute="bottom" constant="8" id="7zp-CT-ZUm"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="leading" secondItem="98p-cl-MGb" secondAttribute="leading" constant="8" id="9TL-Zh-zxT"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="trailing" secondItem="98p-cl-MGb" secondAttribute="trailing" constant="8" id="WkR-7P-v6T"/>
+                            <constraint firstItem="Y5p-qC-q0V" firstAttribute="top" secondItem="98p-cl-MGb" secondAttribute="top" constant="8" id="vpk-ZS-U2N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="98p-cl-MGb"/>
                     </view>

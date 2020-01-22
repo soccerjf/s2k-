@@ -45,8 +45,8 @@ class ScheduleVC: UITableViewController {
         if segue.identifier == "showMapVCSegue" {
             let selectedCell = (sender as? UITableViewCell)!
             let index = tableView.indexPath(for: selectedCell)?.row
-            self.longitude = Double(games[index!].gameLat) ?? 0.000
-            self.latitude = Double(games[index!].gameLong) ?? 0.000
+            self.longitude = Double(games[index!].gameLong) ?? 0.000
+            self.latitude = Double(games[index!].gameLat) ?? 0.000
             if longitude == 0.00 || latitude == 0.00 {
                 let alert = UIAlertController(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
@@ -58,10 +58,8 @@ class ScheduleVC: UITableViewController {
                 let dest = segue.destination as? MapVC
                 dest?.latitude = self.latitude
                 dest?.longitude = self.longitude
-//                dest?.teamName =  self.fetchedTeams[lastSelectedTeam[0]-1].teamName
-//                let cell = collectionView.cellForItem(at: indexPath)
-//                if let mapIcon = cell!.viewWithTag(450) as? UIButton {
-//                    mapIcon.isHidden = false
+                dest?.fieldName = games[index!].gameLocation
+                dest?.gameDetails = games[index!].gameDate + " @ " + games[index!].gameTime
             }
         }
     }

@@ -31,6 +31,9 @@ class MapVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
+        print(latitude)
+        print(longitude)
         let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
         let fieldDetails = FieldDetails(title: fieldName, gameDetails: gameDetails, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         mapView.addAnnotation(fieldDetails)
@@ -40,5 +43,28 @@ class MapVC: UIViewController {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
-
+}
+extension MapVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? FieldDetails else { return nil }
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! FieldDetails
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
 }
