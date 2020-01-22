@@ -337,21 +337,23 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
-        teamID = Int(fetchedTeams[indexPath[0]-1].teamID)!
-        if teamID != 0 {
-            if lastSelectedTeam.section != 0 {
-                let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
-                lastCell?.layer.borderWidth = 0.1
-                lastCell?.layer.borderColor = UIColor.lightGray.cgColor
-            }
-            teamName = fetchedTeams[indexPath[0]-1].teamName
-            let cell = collectionView.cellForItem(at: indexPath)
-            cell?.layer.borderWidth = 2.0
-            cell?.layer.borderColor = UIColor.green.cgColor
-            lastSelectedTeam = indexPath
-            showScheduleItem.isEnabled = true
-            if showStandings == "Yes" {
-                showPastGamesItem.isEnabled = true
+        if indexPath[0] > 0 {
+            teamID = Int(fetchedTeams[indexPath[0]-1].teamID)!
+            if teamID != 0 {
+                if lastSelectedTeam.section != 0 {
+                    let lastCell = collectionView.cellForItem(at: lastSelectedTeam)
+                    lastCell?.layer.borderWidth = 0.1
+                    lastCell?.layer.borderColor = UIColor.lightGray.cgColor
+                }
+                teamName = fetchedTeams[indexPath[0]-1].teamName
+                let cell = collectionView.cellForItem(at: indexPath)
+                cell?.layer.borderWidth = 2.0
+                cell?.layer.borderColor = UIColor.green.cgColor
+                lastSelectedTeam = indexPath
+                showScheduleItem.isEnabled = true
+                if showStandings == "Yes" {
+                    showPastGamesItem.isEnabled = true
+                }
             }
         }
     }

@@ -43,7 +43,7 @@ extension PastGamesVC: UICollectionViewDelegate, UICollectionViewDataSource{
             cell.gameSelectedTeamScore.text = games[indexPath.row].gameHomeTeamScore
             cell.gameOpponentTeamScore.text = games[indexPath.row].gameAwayTeamScore
             if Int(games[indexPath.row].gameHomeTeamScore)! > Int(games[indexPath.row].gameAwayTeamScore)! {
-                cell.gameResults.text = "** WIN **" + games[indexPath.row].gameStatus
+                cell.gameResults.text = "** WIN **"
                 cell.gameResults.textColor = UIColor(red:0.18, green:0.44, blue:0.38, alpha:1.0)
             }
             if Int(games[indexPath.row].gameHomeTeamScore)! < Int(games[indexPath.row].gameAwayTeamScore)! {

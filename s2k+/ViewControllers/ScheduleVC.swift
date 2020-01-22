@@ -29,7 +29,7 @@ class ScheduleVC: UITableViewController {
         let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
         let label = UILabel()
         label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
-        label.text = "Tap on the Field Name to see directions to the field"
+        label.text = "Tap on the Field Name to see its location"
         label.textAlignment = .center
         label.textColor = UIColor.orange
         label.font = UIFont(name: "chalkduster", size: 14)

@@ -25,7 +25,7 @@ class HelpVC: UIViewController {
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "Division" {
-            htmlText = "DIVISION VIEW Help<br /><br />These are the Divisions/Age Groups in the " + leagueName + " League you choose<br />Tap on a Division Name or Logo to see the standings (if applicable) and schedule for the Division.<br /><br />Tap anywhere on this screen to close it."
+            htmlText = "DIVISION VIEW Help<br /><br />These are the Divisions/Age Groups in the " + leagueName + " League you chose<br />Tap on a Division Name or Logo to see the standings (if applicable) and schedule for the Division.<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "Team" {
@@ -37,7 +37,11 @@ class HelpVC: UIViewController {
              helpText.text = htmlText.htmlToString
         }
         if sourceID == "Schedule" {
-            htmlText = "SCHEDULE VIEW Help<br /><br />These are the remaining games to be played for the team you choose<br />Tap on a game box and if the field for that game has the location co-ordinates set, an map icon will appear.  You can then tap on the icon to see a map of the field location."
+            htmlText = "SCHEDULE VIEW Help<br /><br />These are the remaining games to be played for the team you chose<br />Tap on a game box and if the field for that game has the location co-ordinates set, an map icon will appear.  You can then tap on the icon to see a map of the field location."
+            helpText.text = htmlText.htmlToString
+        }
+        if sourceID == "Map" {
+            htmlText = "MAP VIEW Help<br />Tap on the red marker to see more details about the game.<br />You can then tap on the blue circled i to get driving instructions from your current location to the field."
             helpText.text = htmlText.htmlToString
         }
     }

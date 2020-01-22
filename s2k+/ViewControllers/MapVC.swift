@@ -21,6 +21,9 @@ class MapVC: UIViewController {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
     }
+    @IBAction func mapHelp(_ sender: Any) {
+        performSegue(withIdentifier: "MapHelpSegue", sender: nil)
+    }
     let locationManager = CLLocationManager()
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
@@ -42,6 +45,13 @@ class MapVC: UIViewController {
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate,latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "MapHelpSegue" {
+            if let dest = segue.destination as? HelpVC {
+                dest.sourceID = "Map"
+            }
+        }
     }
 }
 extension MapVC: MKMapViewDelegate {
