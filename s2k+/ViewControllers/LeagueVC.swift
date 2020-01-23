@@ -9,14 +9,18 @@
 import UIKit
 import Kingfisher
 import Network
+import GoogleMobileAds
 
-class LeagueVC: UITableViewController  {
+class LeagueVC: UITableViewController {
 
-// MARK: kick-off
     let monitor = NWPathMonitor()
     var fetchedLeagues = [League]()
     private var request: AnyObject?
     let networkActivity = NetworkActivity(text: "Fetching Leagues")
+
+    lazy var googleAdMobBanner: GoogleAds = {
+        return GoogleAds(sourceTableViewController: self)
+    }()
     
     @IBAction func leagueHelp(_ sender: Any) {
         performSegue(withIdentifier: "LeagueHelpSegue", sender: nil)
@@ -24,17 +28,20 @@ class LeagueVC: UITableViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NetworkStatus.shared.startMonitoring()
         NetworkStatus.shared.netStatusChangeHandler = {
             DispatchQueue.main.async { [unowned self] in
                 self.tableView.reloadData()
             }
         }
+        googleAdMobBanner.loadAdMob()
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
     }
-    
+
+ 
 // MARK: set the section info
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 1 ? 50 : 1
@@ -65,7 +72,6 @@ class LeagueVC: UITableViewController  {
         return section == 0 ? 1 : fetchedLeagues.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueCell
         switch indexPath.section {
         case 0:
@@ -83,13 +89,11 @@ class LeagueVC: UITableViewController  {
                 cell.leagueEndDate.text = ""
             }
             cell.leagueStartDate.text = ""
-
             cell.leagueStartDateLabel.text = ""
         case 1:
             cell.leagueName.text = fetchedLeagues[indexPath.row].leagueName
             cell.leagueStartDate.text = fetchedLeagues[indexPath.row].leagueStart
             cell.leagueEndDate.text = fetchedLeagues[indexPath.row].leagueEnd
-
             if let leagueLogo = cell.leagueLogo {
                 leagueLogo.kf.setImage(with: self.fetchedLeagues[indexPath.row].leagueLogoURL)
             }
@@ -149,5 +153,4 @@ private extension LeagueVC {
             self?.tableView.reloadData()
         }
     }
-
 }
