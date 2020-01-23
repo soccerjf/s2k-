@@ -27,7 +27,9 @@ class MapVC: UIViewController {
     let locationManager = CLLocationManager()
     func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
-           mapView.showsUserLocation = true
+            mapView.showsUserLocation = true
+            mapView.showsCompass = true
+            mapView.showsTraffic = true
         } else {
             locationManager.requestAlwaysAuthorization()
         }
@@ -35,8 +37,6 @@ class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        print(latitude)
-        print(longitude)
         let initialLocation = CLLocation(latitude: latitude, longitude: longitude)
         let fieldDetails = FieldDetails(title: fieldName, gameDetails: gameDetails, coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         mapView.addAnnotation(fieldDetails)

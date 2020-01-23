@@ -37,7 +37,7 @@ class GoogleAds: NSObject, GADBannerViewDelegate {
     }
 
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print(error)
+        fatalError("\(error)")
     }
 
     func loadAdMob() {
