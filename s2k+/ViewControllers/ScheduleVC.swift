@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 class ScheduleVC: UITableViewController {
  // MARK: kick-off
@@ -26,7 +27,7 @@ class ScheduleVC: UITableViewController {
         return 75
     }
     override func tableView (_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 100))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
         let label = UILabel()
         label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
         label.text = "Tap on the Field Name to see its location"
@@ -72,8 +73,41 @@ class ScheduleVC: UITableViewController {
         return games.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath) as! ScheduleCell
+        cell.addToCalendarAction = { [unowned self] in
+            let eventStore: EKEventStore = EKEventStore()
+            eventStore.requestAccess(to: .event) {(granted,error) in
+                if(granted) && (error == nil) {
+                    let event:EKEvent = EKEvent(eventStore: eventStore)
+                    event.title = self.teamName
+                    let convertedDate = DateFormatter()
+                    convertedDate.dateFormat = "yyyy-mm-dd HH:mm"
+                    event.startDate = convertedDate.date(from: self.games[indexPath.row].gameOrgDate)
+                    event.endDate = convertedDate.date(from: self.games[indexPath.row].gameOrgDate)
+                    if self.teamID == self.games[indexPath.row].gameHomeTeamID {
+                        event.notes = "Opponent is \(self.games[indexPath.row].gameAwayTeam)"
+                    } else {
+                        event.notes = "Opponent is \(self.games[indexPath.row].gameHomeTeam)"
+                    }
+                    event.location = self.games[indexPath.row].gameLocation
+                    event.calendar = eventStore.defaultCalendarForNewEvents
+                    do {
+                        try eventStore.save(event, span: .thisEvent)
+                    } catch let error as NSError {
+                        print("failed to save event with error : \(error)")
+                    }
+                    DispatchQueue.main.async {
+                       let alert = UIAlertController(title: "Game Added", message: "To be played on  \(self.games[indexPath.row].gameDate)", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert.addAction(okAction)
+
+                       self.present(alert, animated: true, completion: nil)
+                    }
+                } else{
+                print("failed to save event with error : \(String(describing: error)) or access not granted")
+                }
+            }
+        }
         cell.gameDate.text = games[indexPath.row].gameDate
         cell.gameTime.text = games[indexPath.row].gameTime
         if teamID == games[indexPath.row].gameHomeTeamID {

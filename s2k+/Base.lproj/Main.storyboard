@@ -687,12 +687,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;time&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwR-2n-vZ5">
-                                                    <rect key="frame" x="0.0" y="42.5" width="55" height="34.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="F36-Iu-aGe">
+                                                    <rect key="frame" x="0.0" y="42.5" width="263" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;time&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwR-2n-vZ5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="55" height="34.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wx-v3-Crj">
+                                                            <rect key="frame" x="105" y="0.0" width="158" height="34.5"/>
+                                                            <state key="normal" title="Add To Calendar" image="calendar.badge.plus" catalog="system"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&lt;opponent&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n37-Wg-aiy">
                                                     <rect key="frame" x="0.0" y="85" width="95" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -700,15 +709,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="&lt;field&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOB-DT-rvJ">
-                                                    <rect key="frame" x="0.0" y="127.5" width="55" height="34.5"/>
+                                                    <rect key="frame" x="0.0" y="127.5" width="54.5" height="34.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="fwR-2n-vZ5" firstAttribute="centerX" secondItem="HOB-DT-rvJ" secondAttribute="centerX" id="d1L-If-T78"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -724,6 +730,7 @@
                                 </tableViewCellContentView>
                                 <viewLayoutGuide key="safeArea" id="Ip1-vr-ckT"/>
                                 <connections>
+                                    <outlet property="addToCalendar" destination="3Wx-v3-Crj" id="fd3-hU-0GC"/>
                                     <outlet property="gameDate" destination="fZK-aE-vIH" id="7HY-0m-lbu"/>
                                     <outlet property="gameField" destination="HOB-DT-rvJ" id="9vl-xZ-0UT"/>
                                     <outlet property="gameOpponent" destination="n37-Wg-aiy" id="yVm-tT-tU9"/>
@@ -780,6 +787,7 @@
     <resources>
         <image name="book" catalog="system" width="64" height="50"/>
         <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="calendar.badge.plus" catalog="system" width="64" height="50"/>
         <image name="questionmark" catalog="system" width="48" height="64"/>
         <image name="resultsBorder" width="343" height="147"/>
     </resources>

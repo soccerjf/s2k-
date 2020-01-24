@@ -116,6 +116,7 @@ struct Schedule {
     let gameLat: String
     let gameLong: String
     let gameCup: String
+    let gameOrgDate: String
 }
 
 extension Schedule: Decodable {
@@ -137,6 +138,7 @@ extension Schedule: Decodable {
         case gameLat
         case gameLong
         case gameCup
+        case gameOrgDate
     }
 }
 

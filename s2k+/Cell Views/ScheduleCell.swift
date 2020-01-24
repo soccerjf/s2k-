@@ -14,5 +14,19 @@ class ScheduleCell: UITableViewCell {
     @IBOutlet weak var gameTime: UILabel!
     @IBOutlet weak var gameOpponent: UILabel!
     @IBOutlet weak var gameField: UILabel!
+    @IBOutlet weak var addToCalendar: UIButton!
+    var addToCalendarAction: (() -> ())?
+    
+    override func awakeFromNib() {
+      super.awakeFromNib()
+      self.addToCalendar.addTarget(self, action: #selector(addToCalendarTapped(_:)), for: .touchUpInside)
+    }
+    override func setSelected(_ selected: Bool, animated: Bool) {
+      super.setSelected(selected, animated: animated)
+    }
+      
+    @IBAction func addToCalendarTapped(_ sender: UIButton){
+      addToCalendarAction?()
+    }
     
 }

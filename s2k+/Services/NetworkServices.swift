@@ -24,8 +24,7 @@ extension NetworkServices {
         let task = session.dataTask(with: url, completionHandler: { [weak self] (data: Data?, response: URLResponse?, error: Error?) -> Void in
             guard let data = data else {
                 completion(nil)
-                //TODO: capture error and react
-                print("Error in guard data")
+                #warning ("TODO: capture error and react")
                 return
             }
             completion(self?.decode(data))
