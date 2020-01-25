@@ -58,13 +58,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iup-zV-PLN">
-                                            <rect key="frame" x="90" y="41" width="106" height="5"/>
+                                            <rect key="frame" x="90" y="41" width="106" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="QKL-1J-ADL"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League End Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV7-75-4fS">
-                                            <rect key="frame" x="90" y="56" width="99.5" height="25"/>
+                                            <rect key="frame" x="90" y="76" width="99.5" height="5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="LdF-S6-6lc"/>
                                             </constraints>
@@ -79,7 +82,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueEndDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7R-Mp-sPK">
-                                            <rect key="frame" x="209.5" y="58" width="154" height="21"/>
+                                            <rect key="frame" x="209.5" y="68" width="154" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="Fud-K7-jD1"/>
                                             </constraints>
