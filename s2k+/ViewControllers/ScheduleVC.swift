@@ -18,6 +18,9 @@ class ScheduleVC: UITableViewController {
     var homeOrAway = ""
     var latitude = 0.000
     var longitude = 0.000
+    @IBAction func scheduleHelp(_ sender: Any) {
+        performSegue(withIdentifier: "ScheduleHelpSegue", sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = teamName
@@ -40,6 +43,7 @@ class ScheduleVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ScheduleHelpSegue" {
             if let dest = segue.destination as? HelpVC {
+                dest.teamName = teamName
                 dest.sourceID = "Schedule"
             }
         }
@@ -81,13 +85,13 @@ class ScheduleVC: UITableViewController {
                     let event:EKEvent = EKEvent(eventStore: eventStore)
                     event.title = self.teamName
                     let convertedDate = DateFormatter()
-                    convertedDate.dateFormat = "yyyy-mm-dd HH:mm"
+                    convertedDate.dateFormat = "yyyy-MM-dd HH:mm"
                     event.startDate = convertedDate.date(from: self.games[indexPath.row].gameOrgDate)
-                    event.endDate = convertedDate.date(from: self.games[indexPath.row].gameOrgDate)
+                    event.endDate = convertedDate.date(from: self.games[indexPath.row].gameOrgDate)?.addingTimeInterval(1.5 * 60 * 60)
                     if self.teamID == self.games[indexPath.row].gameHomeTeamID {
-                        event.notes = "Opponent is \(self.games[indexPath.row].gameAwayTeam)"
+                        event.notes = "Home Game. Opponent is \(self.games[indexPath.row].gameAwayTeam)"
                     } else {
-                        event.notes = "Opponent is \(self.games[indexPath.row].gameHomeTeam)"
+                        event.notes = "Away Game. Opponent is \(self.games[indexPath.row].gameHomeTeam)"
                     }
                     event.location = self.games[indexPath.row].gameLocation
                     event.calendar = eventStore.defaultCalendarForNewEvents

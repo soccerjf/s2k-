@@ -16,6 +16,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="S0v-2z-xXh">
+                            <rect key="frame" x="0.0" y="147" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Alternate Lookup" id="QgS-Ir-mmT">
+                                    <connections>
+                                        <action selector="alternateSearchButton:" destination="uaE-Gx-iTj" id="9Ov-Cv-YHv"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="jEl-Kc-m49"/>
+                                <barButtonItem title="Games Today" id="2GX-87-hQH">
+                                    <connections>
+                                        <action selector="todayGamesButton:" destination="uaE-Gx-iTj" id="Ar7-X7-Ynz"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leagueCell" rowHeight="91" id="W1a-OM-ouA" customClass="LeagueCell" customModule="s2k_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="91"/>
@@ -740,11 +757,18 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" id="L7G-s0-kcR"/>
+                    <navigationItem key="navigationItem" id="L7G-s0-kcR">
+                        <barButtonItem key="rightBarButtonItem" title="Help" image="questionmark" catalog="system" id="r1U-fJ-jsc">
+                            <connections>
+                                <action selector="scheduleHelp:" destination="qGK-Mf-5sP" id="1Mh-Rr-F3q"/>
+                                <segue destination="lHg-SY-9k5" kind="presentation" identifier="ScheduleHelpSegue" id="bnX-UH-jz5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldV-AJ-orJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="-1273.6607142857142"/>
+            <point key="canvasLocation" x="136" y="-2215"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="fME-et-Po2">
@@ -781,7 +805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7S-Du-KJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="380" y="-1274"/>
+            <point key="canvasLocation" x="929" y="-1298"/>
         </scene>
     </scenes>
     <resources>
@@ -792,6 +816,6 @@
         <image name="resultsBorder" width="343" height="147"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0vy-0e-tV5"/>
+        <segue reference="mDl-Cp-jgo"/>
     </inferredMetricsTieBreakers>
 </document>

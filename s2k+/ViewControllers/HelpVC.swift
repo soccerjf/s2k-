@@ -14,6 +14,7 @@ class HelpVC: UIViewController {
     var sourceID = ""
     var htmlText: String!
     var leagueName: String!
+    var teamName: String!
 
     @IBOutlet weak var helpText: UILabel!
     
@@ -21,7 +22,7 @@ class HelpVC: UIViewController {
         super.viewDidLoad()
 
         if sourceID == "League" {
-            htmlText = "LEAGUE VIEW Help<br /><br />S2K+ can provide you with game dates and results* for teams playing within the Peel Halton Soccer Association (PHSA).<br /> *Not applicable to development level teams that do not record game results.<br /><br />Tap on the League Logo to see the league's Divisions/Age Groups<br /><br />Tap anywhere on this screen to close it."
+            htmlText = "LEAGUE VIEW Help<br /><br />S2K+ can provide you with game dates and results* for teams playing within the Peel Halton Soccer Association (PHSA).<br /> *Not applicable to development level teams that do not record game results.<br /><br />Tap on the League Logo to see the league's Divisions/Age Groups<br /><br />Not sure which league the team you're looking for is in? Then tap on the Alternate Lookup option on the bottom of the screen to search for your team another way.<br /><br />Just looking for a game to go see today?  Then tap on the Games Today option on the bottom of the screen.<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "Division" {
@@ -37,7 +38,7 @@ class HelpVC: UIViewController {
              helpText.text = htmlText.htmlToString
         }
         if sourceID == "Schedule" {
-            htmlText = "SCHEDULE VIEW Help<br /><br />These are the remaining games to be played for the team you chose<br />Tap on a game box and if the field for that game has the location co-ordinates set, an map icon will appear.  You can then tap on the icon to see a map of the field location."
+            htmlText = "SCHEDULE VIEW Help<br /><br />These are the remaining games to be played for the " + teamName + "<br />team you chose<br />Tap on a game box and if the field for that game has the location co-ordinates set, a map icon will appear.  You can then tap on the icon to see a map of the field location.<br /><br />You can add the game to your calendar by tapping on the calendar icon, located by the game time.<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "Map" {

@@ -25,7 +25,11 @@ class LeagueVC: UITableViewController {
     @IBAction func leagueHelp(_ sender: Any) {
         performSegue(withIdentifier: "LeagueHelpSegue", sender: nil)
     }
-
+    @IBAction func todayGamesButton(_ sender: Any) {
+    }
+    @IBAction func alternateSearchButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
