@@ -45,6 +45,10 @@ class HelpVC: UIViewController {
             htmlText = "MAP VIEW Help<br />Tap on the red marker to see more details about the game.<br />You can then tap on the blue circled i to get driving instructions from your current location to the field."
             helpText.text = htmlText.htmlToString
         }
+        if sourceID == "AlternateSearch" {
+            htmlText = "ALTERNATE SEARCH Help<br />If you don't know the league your team is in, you can search for the team provided you know the team's gender, date of birth of its players and the club the team is assoicated with. <br />Spin the controllers to select the correct values, then tap on the Find Team(s) button to search for your team."
+            helpText.text = htmlText.htmlToString
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

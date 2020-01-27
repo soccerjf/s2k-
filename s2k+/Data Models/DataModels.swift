@@ -141,6 +141,16 @@ extension Schedule: Decodable {
         case gameOrgDate
     }
 }
+struct Club {
+    let clubID: String
+    let clubName: String
+}
+extension Club: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case clubID
+        case clubName
+    }
+}
 
 struct Wrapper<T: Decodable>: Decodable {
     let items: [T]

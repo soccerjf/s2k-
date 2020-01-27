@@ -101,11 +101,10 @@ class ScheduleVC: UITableViewController {
                         print("failed to save event with error : \(error)")
                     }
                     DispatchQueue.main.async {
-                       let alert = UIAlertController(title: "Game Added", message: "To be played on  \(self.games[indexPath.row].gameDate)", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Game Added", message: "To be played on  \(self.games[indexPath.row].gameDate)", preferredStyle: .alert)
                         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                         alert.addAction(okAction)
-
-                       self.present(alert, animated: true, completion: nil)
+                        self.present(alert, animated: true, completion: nil)
                     }
                 } else{
                 print("failed to save event with error : \(String(describing: error)) or access not granted")

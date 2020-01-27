@@ -99,9 +99,11 @@ struct LeagueResource: APIResource {
     typealias ModelType = League
     var queryItems : [URLQueryItem]
 }
-
 struct TeamResource: APIResource {
     typealias ModelType = Team
     var queryItems : [URLQueryItem]
 }
-
+struct ClubResource: APIResource {
+    typealias ModelType = Club
+    var queryItems: [URLQueryItem]
+}

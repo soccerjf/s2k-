@@ -23,6 +23,7 @@
                                 <barButtonItem title="Alternate Lookup" id="QgS-Ir-mmT">
                                     <connections>
                                         <action selector="alternateSearchButton:" destination="uaE-Gx-iTj" id="9Ov-Cv-YHv"/>
+                                        <segue destination="fRN-k4-s33" kind="show" id="UvU-Va-Afs"/>
                                     </connections>
                                 </barButtonItem>
                                 <barButtonItem style="plain" systemItem="flexibleSpace" id="jEl-Kc-m49"/>
@@ -49,16 +50,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="&lt;leagueNameLabel&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoH-qh-6fK">
-                                            <rect key="frame" x="85" y="8" width="159" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="weA-sg-pJP"/>
-                                            </constraints>
+                                            <rect key="frame" x="85" y="8" width="159" height="5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.23636744966442952" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iup-zV-PLN">
-                                            <rect key="frame" x="90" y="41" width="106" height="25"/>
+                                            <rect key="frame" x="90" y="21" width="106" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="QKL-1J-ADL"/>
                                             </constraints>
@@ -67,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League End Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV7-75-4fS">
-                                            <rect key="frame" x="90" y="76" width="99.5" height="5"/>
+                                            <rect key="frame" x="90" y="56" width="99.5" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="LdF-S6-6lc"/>
                                             </constraints>
@@ -76,13 +74,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueStartDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-43-A8X">
-                                            <rect key="frame" x="209.5" y="38" width="154" height="20.5"/>
+                                            <rect key="frame" x="209.5" y="18" width="154" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueEndDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7R-Mp-sPK">
-                                            <rect key="frame" x="209.5" y="68" width="154" height="21"/>
+                                            <rect key="frame" x="209.5" y="58" width="154" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="Fud-K7-jD1"/>
                                             </constraints>
@@ -142,6 +140,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1z-Z0-cn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1888" y="-933"/>
+        </scene>
+        <!--SearchByAgeGroupVC-->
+        <scene sceneID="aa3-6G-nfo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AlternateSearch" referencedIdentifier="SearchByAgeGroupVC" id="fRN-k4-s33" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CiZ-BI-989"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQs-bn-Chw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1908" y="-530"/>
         </scene>
         <!--Division Details-->
         <scene sceneID="pc4-L2-Hpi">
@@ -349,7 +357,7 @@
         <!--HelpVC-->
         <scene sceneID="BwD-2W-rxE">
             <objects>
-                <viewController id="lHg-SY-9k5" customClass="HelpVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="helpvc" id="lHg-SY-9k5" customClass="HelpVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4p-aA-XxM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
