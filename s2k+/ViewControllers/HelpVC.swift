@@ -42,11 +42,15 @@ class HelpVC: UIViewController {
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "Map" {
-            htmlText = "MAP VIEW Help<br />Tap on the red marker to see more details about the game.<br />You can then tap on the blue circled i to get driving instructions from your current location to the field."
+            htmlText = "MAP VIEW Help<br />Tap on the red marker to see more details about the game.<br />You can then tap on the blue circled i to get driving instructions from your current location to the field..<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
         if sourceID == "AlternateSearch" {
-            htmlText = "ALTERNATE SEARCH Help<br />If you don't know the league your team is in, you can search for the team provided you know the team's gender, date of birth of its players and the club the team is assoicated with. <br />Spin the controllers to select the correct values, then tap on the Find Team(s) button to search for your team."
+            htmlText = "ALTERNATE SEARCH Help<br />If you don't know the league your team is in, you can search for the team provided you know the team's gender, year of birth of its players and the club the team is assoicated with. <br />Spin the controllers to select the correct values, then tap on the Find Team(s) button to search for your team.<br /><br />Tap anywhere on this screen to close it."
+            helpText.text = htmlText.htmlToString
+        }
+        if sourceID == "FoundTeam" {
+            htmlText = "FOUND TEAMS Help<br />Now that you've found all of the teams based on your search criteria, you can either go back to the main screen and use the provided League and Division information to see all of the teams in the same division, or tap on the team name in this view and see the selected team's full schedule.<br /><br />Tap anywhere on this screen to close it."
             helpText.text = htmlText.htmlToString
         }
     }

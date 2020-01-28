@@ -157,6 +157,8 @@ extension SearchByAgeGroupVC: UIPickerViewDelegate, UIPickerViewDataSource {
         if segue.identifier == "showFoundTeamsVCSegue" {
             let dest = segue.destination as? FoundTeamsVC
             dest?.searchParams = genderSelected + ":" + ageGroupSelected + ":" + clubIDSelected
+            dest?.teamGender = genderSelected
+            dest?.teamAgeGroup = ageGroupSelected
         }
     }
 }

@@ -72,12 +72,10 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
           else {
             fatalError("Invalid view type")
         }
-
         headerView.divisionSectionHeader.text = "Divisions for " + self.leagueName
         headerView.divisionSectionHeaderHelp.text = "Tap on division section to see teams"
         return headerView
       default:
-        // 4
         assert(false, "Invalid element type")
       }
     }

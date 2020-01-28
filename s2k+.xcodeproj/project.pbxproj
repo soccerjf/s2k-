@@ -13,6 +13,9 @@
 		BFA3C89923DDC92700073FC1 /* SearchByAgeGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3C89823DDC92700073FC1 /* SearchByAgeGroupVC.swift */; };
 		BFA3C89D23DF727800073FC1 /* FoundTeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3C89C23DF727800073FC1 /* FoundTeamsVC.swift */; };
 		BFA3C89F23DF737500073FC1 /* FoundTeamsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3C89E23DF737500073FC1 /* FoundTeamsCell.swift */; };
+		BFA3C8A123E0842200073FC1 /* GamesToday.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA3C8A023E0842200073FC1 /* GamesToday.storyboard */; };
+		BFA3C8A323E0858600073FC1 /* GamesTodayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3C8A223E0858600073FC1 /* GamesTodayVC.swift */; };
+		BFA3C8A523E085F500073FC1 /* GamesTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3C8A423E085F500073FC1 /* GamesTodayCell.swift */; };
 		BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA47C4123CEB2510033DDA0 /* TeamCell.swift */; };
 		BFAC023D23D7B25A00F9A47C /* FieldDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC023C23D7B25A00F9A47C /* FieldDetails.swift */; };
 		BFB36CF623D25D9C00E453A4 /* PastGamesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */; };
@@ -52,6 +55,9 @@
 		BFA3C89823DDC92700073FC1 /* SearchByAgeGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByAgeGroupVC.swift; sourceTree = "<group>"; };
 		BFA3C89C23DF727800073FC1 /* FoundTeamsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundTeamsVC.swift; sourceTree = "<group>"; };
 		BFA3C89E23DF737500073FC1 /* FoundTeamsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundTeamsCell.swift; sourceTree = "<group>"; };
+		BFA3C8A023E0842200073FC1 /* GamesToday.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GamesToday.storyboard; sourceTree = "<group>"; };
+		BFA3C8A223E0858600073FC1 /* GamesTodayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTodayVC.swift; sourceTree = "<group>"; };
+		BFA3C8A423E085F500073FC1 /* GamesTodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesTodayCell.swift; sourceTree = "<group>"; };
 		BFA47C4123CEB2510033DDA0 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		BFAC023C23D7B25A00F9A47C /* FieldDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldDetails.swift; sourceTree = "<group>"; };
 		BFB36CF523D25D9C00E453A4 /* PastGamesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastGamesVC.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 			children = (
 				BFD833B523C8D7E400F3EA9B /* Main.storyboard */,
 				BFA3C89523DDC8C800073FC1 /* AlternateSearch.storyboard */,
+				BFA3C8A023E0842200073FC1 /* GamesToday.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 				BFFFDBA023D9E8B800C28613 /* GoogleAds.swift */,
 				BFA3C89823DDC92700073FC1 /* SearchByAgeGroupVC.swift */,
 				BFA3C89C23DF727800073FC1 /* FoundTeamsVC.swift */,
+				BFA3C8A223E0858600073FC1 /* GamesTodayVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				BFB36CF723D352EF00E453A4 /* PastGamesCell.swift */,
 				BFB36D0323D5E27900E453A4 /* ScheduleCell.swift */,
 				BFA3C89E23DF737500073FC1 /* FoundTeamsCell.swift */,
+				BFA3C8A423E085F500073FC1 /* GamesTodayCell.swift */,
 			);
 			path = "Cell Views";
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 				BFD833BC23C8D7E600F3EA9B /* LaunchScreen.storyboard in Resources */,
 				BFBAD76E23CFF814006A7C67 /* LastFiveGamesCell.xib in Resources */,
 				BFD833B923C8D7E600F3EA9B /* Assets.xcassets in Resources */,
+				BFA3C8A123E0842200073FC1 /* GamesToday.storyboard in Resources */,
 				BFD833B723C8D7E400F3EA9B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA47C4223CEB2510033DDA0 /* TeamCell.swift in Sources */,
+				BFA3C8A523E085F500073FC1 /* GamesTodayCell.swift in Sources */,
 				BFC17CCB23CA2887008AAF4D /* DivisionVC.swift in Sources */,
 				BFD833C823C9150400F3EA9B /* NetworkServices.swift in Sources */,
 				BFB36CF823D352EF00E453A4 /* PastGamesCell.swift in Sources */,
@@ -355,6 +366,7 @@
 				BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */,
 				BFA3C89D23DF727800073FC1 /* FoundTeamsVC.swift in Sources */,
 				BFD833C623C9144A00F3EA9B /* DataModels.swift in Sources */,
+				BFA3C8A323E0858600073FC1 /* GamesTodayVC.swift in Sources */,
 				BFF3950723CDF97400BC1F6F /* NetworkStatus.swift in Sources */,
 				BFD833CA23C919E200F3EA9B /* NetworkActivity.swift in Sources */,
 				BFD833C423C8E4E900F3EA9B /* LeagueCell.swift in Sources */,

@@ -30,6 +30,7 @@
                                 <barButtonItem title="Games Today" id="2GX-87-hQH">
                                     <connections>
                                         <action selector="todayGamesButton:" destination="uaE-Gx-iTj" id="Ar7-X7-Ynz"/>
+                                        <segue destination="Ls0-1j-zzU" kind="show" id="wyf-42-Gy4"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -140,6 +141,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1z-Z0-cn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1888" y="-933"/>
+        </scene>
+        <!--GamesTodayVC-->
+        <scene sceneID="WtR-MK-Dht">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GamesToday" referencedIdentifier="GamesTodayVC" id="Ls0-1j-zzU" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="pOf-9s-aox"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3I3-a1-nne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1623" y="-567"/>
         </scene>
         <!--SearchByAgeGroupVC-->
         <scene sceneID="aa3-6G-nfo">
@@ -651,12 +662,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yH-uc-J9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686.9565217391305" y="-238.39285714285714"/>
+            <point key="canvasLocation" x="887" y="-569"/>
         </scene>
-        <!--ScheduleVC-->
+        <!--Schedule-->
         <scene sceneID="zIB-Yn-wTy">
             <objects>
-                <viewController id="qGK-Mf-5sP" customClass="ScheduleVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="schedulevc" title="Schedule" id="qGK-Mf-5sP" customClass="ScheduleVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fno-xL-sF5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -779,7 +790,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldV-AJ-orJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="-2215"/>
+            <point key="canvasLocation" x="-41" y="-1286"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="fME-et-Po2">
@@ -827,6 +838,6 @@
         <image name="resultsBorder" width="343" height="147"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mDl-Cp-jgo"/>
+        <segue reference="ChS-Ms-5nM"/>
     </inferredMetricsTieBreakers>
 </document>

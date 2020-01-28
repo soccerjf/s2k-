@@ -73,7 +73,7 @@ class LeagueVC: UITableViewController {
         return 2
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : fetchedLeagues.count
+        return section == 0 ? 0 : fetchedLeagues.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueCell
