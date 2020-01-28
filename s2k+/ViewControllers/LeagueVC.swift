@@ -47,9 +47,7 @@ class LeagueVC: UITableViewController {
 
  
 // MARK: set the section info
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 1 ? 50 : 1
-    }
+
     override func tableView (_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
@@ -73,7 +71,7 @@ class LeagueVC: UITableViewController {
         return 2
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 0 : fetchedLeagues.count
+        return section == 0 ? 1 : fetchedLeagues.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCell", for: indexPath) as! LeagueCell
@@ -82,6 +80,10 @@ class LeagueVC: UITableViewController {
             if NetworkStatus.shared.isConnected {
                 cell.leagueName.text = "Internet Status: Connected"
                 cell.leagueEndDateLabel.text = "Using: "
+                cell.leagueStartDate = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                cell.leagueStartDateLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+                //label.numberOfLines = 0
+               // cell.leagueStartDateLabel.numberOfLines = 0
                 if NetworkStatus.shared.isExpensive {
                    cell.leagueEndDate.text = "Cellular"
                 } else {
@@ -92,8 +94,8 @@ class LeagueVC: UITableViewController {
                 cell.leagueEndDateLabel.text = ""
                 cell.leagueEndDate.text = ""
             }
-            cell.leagueStartDate.text = ""
-            cell.leagueStartDateLabel.text = ""
+  //          cell.leagueStartDate.text = ""
+  //          cell.leagueStartDateLabel.text = ""
         case 1:
             cell.leagueName.text = fetchedLeagues[indexPath.row].leagueName
             cell.leagueStartDate.text = fetchedLeagues[indexPath.row].leagueStart
@@ -149,8 +151,12 @@ private extension LeagueVC {
         leagueRequest.load { [weak self] (leagues: [League]?) in
             guard ((self?.fetchedLeagues = leagues!) != nil)
                  else {
-                    #warning ("proper reporting")
-                    print("Error in fetchData - Leagues")
+                    let alert = UIAlertController(title: "Error", message: "Could not retrieve the League Data from S2K, please try again later.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                        (alertAction: UIAlertAction!) in
+                        alert.dismiss(animated: true, completion: nil)
+                    }))
+                    self!.present(alert, animated: true, completion: nil)
                     return
             }
             self?.networkActivity.hide()

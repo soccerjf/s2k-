@@ -174,8 +174,12 @@ private extension SearchByAgeGroupVC {
         clubRequest.load { [weak self] (clubs: [Club]?) in
             guard ((self?.fetchedClubs = clubs!) != nil)
                  else {
-                    #warning ("proper reporting")
-                    print("Error in fetchData - Clubs")
+                    let alert = UIAlertController(title: "Error", message: "Could not retrieve the Club Data from S2K, please try again later.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                        (alertAction: UIAlertAction!) in
+                        alert.dismiss(animated: true, completion: nil)
+                    }))
+                    self!.present(alert, animated: true, completion: nil)
                     return
             }
             self?.pickerList.reloadAllComponents()

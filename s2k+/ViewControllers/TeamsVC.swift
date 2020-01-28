@@ -370,8 +370,12 @@ private extension TeamsVC {
         teamRequest.load { [weak self] (teams: [Team]?) in
         guard ((self?.fetchedTeams = teams!) != nil)
              else {
-                #warning ("proper reporting")
-                print("Error in fetchData - Teams")
+                let alert = UIAlertController(title: "Error", message: "Could not retrieve the Team Data from S2K, please try again later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                self!.present(alert, animated: true, completion: nil)
                 return
         }
         self?.networkActivity.hide()
