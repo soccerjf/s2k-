@@ -42,6 +42,7 @@ struct Division {
     let showStandings: String
     let divStart: String
     let divEnd: String
+    let divGameNite: String
 }
 
 extension Division: Decodable {
@@ -53,6 +54,7 @@ extension Division: Decodable {
         case showStandings
         case divStart
         case divEnd
+        case divGameNite
     }
 }
 
@@ -73,6 +75,9 @@ struct Team {
     let teamLastGameD: String
     let teamLastGameE: String
     let teamLogo: URL?
+    let teamLeague: String
+    let teamDivision: String
+    let teamClubName: String
     let teamSchedule: [Schedule?]
 }
 
@@ -94,6 +99,9 @@ extension Team: Decodable {
         case teamLastGameD
         case teamLastGameE
         case teamLogo
+        case teamLeague
+        case teamDivision
+        case teamClubName
         case teamSchedule
     }
 }

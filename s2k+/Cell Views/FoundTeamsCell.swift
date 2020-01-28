@@ -10,4 +10,9 @@ import UIKit
 
 class FoundTeamsCell: UITableViewCell {
 
+    @IBOutlet weak var foundTeamName: UILabel!
+    @IBOutlet weak var foundTeamAgeGroup: UILabel!
+    @IBOutlet weak var foundTeamGender: UILabel!
+    @IBOutlet weak var foundTeamDivision: UILabel!
+    @IBOutlet weak var foundTeamLeague: UILabel!
 }
