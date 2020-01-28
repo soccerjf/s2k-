@@ -11,42 +11,49 @@
         <scene sceneID="aB4-a6-D2c">
             <objects>
                 <viewController storyboardIdentifier="GamesTodayVC" id="9YW-Nc-2RB" customClass="GamesTodayVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="omK-L9-nTE">
+                    <view key="view" contentMode="scaleToFill" id="omK-L9-nTE" customClass="GamesTodayCell" customModule="s2k_" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="TlD-Wz-leR">
-                                <rect key="frame" x="47" y="340" width="320" height="216"/>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="568033200">
-                                    <!--2019-01-01 11:00:00 +0000-->
-                                </date>
-                            </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyq-oJ-RjP">
-                                <rect key="frame" x="154.5" y="184" width="105" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Your Selection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyq-oJ-RjP">
+                                <rect key="frame" x="118" y="80" width="178" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;selected date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDG-19-gmf">
-                                <rect key="frame" x="105" y="220" width="216" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;selected date&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sDG-19-gmf">
+                                <rect key="frame" x="49" y="134" width="316" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="TlD-Wz-leR">
+                                <rect key="frame" x="59" y="214" width="320" height="216"/>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="568033200">
+                                    <!--2019-01-01 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerSelected:" destination="9YW-Nc-2RB" eventType="valueChanged" id="SEg-LZ-ioz"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="pyq-oJ-RjP" firstAttribute="centerX" secondItem="omK-L9-nTE" secondAttribute="centerX" id="8Fp-iJ-sVd"/>
-                            <constraint firstItem="sDG-19-gmf" firstAttribute="leading" secondItem="mkR-Wb-FN4" secondAttribute="leading" constant="105" id="BzV-7D-ANA"/>
-                            <constraint firstItem="sDG-19-gmf" firstAttribute="top" secondItem="pyq-oJ-RjP" secondAttribute="bottom" constant="20" id="Efz-Bg-aO7"/>
-                            <constraint firstItem="TlD-Wz-leR" firstAttribute="centerY" secondItem="omK-L9-nTE" secondAttribute="centerY" id="EwT-51-hdp"/>
-                            <constraint firstItem="TlD-Wz-leR" firstAttribute="top" secondItem="pyq-oJ-RjP" secondAttribute="bottom" constant="140" id="oda-9j-dla"/>
-                            <constraint firstItem="mkR-Wb-FN4" firstAttribute="trailing" secondItem="sDG-19-gmf" secondAttribute="trailing" constant="93" id="rVJ-hv-tI2"/>
-                            <constraint firstItem="TlD-Wz-leR" firstAttribute="centerX" secondItem="omK-L9-nTE" secondAttribute="centerX" id="rW1-Vg-X3Q"/>
-                            <constraint firstItem="pyq-oJ-RjP" firstAttribute="top" secondItem="mkR-Wb-FN4" secondAttribute="top" constant="140" id="rur-PQ-mRa"/>
+                            <constraint firstItem="pyq-oJ-RjP" firstAttribute="leading" secondItem="mkR-Wb-FN4" secondAttribute="leading" constant="118" id="0Tg-Pg-heH"/>
+                            <constraint firstItem="pyq-oJ-RjP" firstAttribute="top" secondItem="mkR-Wb-FN4" secondAttribute="top" constant="36" id="9q6-a7-mZb"/>
+                            <constraint firstItem="sDG-19-gmf" firstAttribute="centerX" secondItem="pyq-oJ-RjP" secondAttribute="centerX" id="ZRy-Wk-qXX"/>
+                            <constraint firstItem="pyq-oJ-RjP" firstAttribute="centerX" secondItem="TlD-Wz-leR" secondAttribute="centerX" constant="-12" id="eFg-Ip-WJQ"/>
+                            <constraint firstItem="sDG-19-gmf" firstAttribute="leading" secondItem="mkR-Wb-FN4" secondAttribute="leading" constant="49" id="fQd-YK-Lje"/>
+                            <constraint firstItem="TlD-Wz-leR" firstAttribute="bottom" secondItem="sDG-19-gmf" secondAttribute="top" constant="296" id="ggB-4Z-7za"/>
+                            <constraint firstItem="sDG-19-gmf" firstAttribute="top" secondItem="pyq-oJ-RjP" secondAttribute="top" constant="54" id="nfv-e9-GVT"/>
+                            <constraint firstItem="TlD-Wz-leR" firstAttribute="centerX" secondItem="omK-L9-nTE" secondAttribute="centerX" constant="12" id="rW1-Vg-X3Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mkR-Wb-FN4"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicked" destination="TlD-Wz-leR" id="m1p-ut-AdY"/>
+                        <outlet property="gamesToday" destination="sDG-19-gmf" id="7ry-hW-HSs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGr-VG-4BM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

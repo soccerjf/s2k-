@@ -9,6 +9,14 @@
 import UIKit
 
 class GamesTodayVC: UIViewController {
+    @IBOutlet weak var gamesToday: UILabel!
+    @IBOutlet weak var datePicked: UIDatePicker!
+    @IBAction func datePickerSelected(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.full
+        gamesToday.text = dateFormatter.string(from: datePicked.date)
+    }
+    
     override func viewDidLoad() {
         
     }
