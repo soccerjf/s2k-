@@ -47,6 +47,7 @@ class ShowScheduleVC: UITableViewController {
         cell.division.text = fetchedGames[indexPath.row].gameTier
         cell.league.text = fetchedGames[indexPath.row].gameLeague
         cell.gameTime.text = fetchedGames[indexPath.row].gameTime
+        cell.city.text = fetchedGames[indexPath.row].gameCity
         return cell
     }
 }
@@ -69,7 +70,6 @@ private extension ShowScheduleVC {
                     self!.present(alert, animated: true, completion: nil)
                     return
             }
-            print(self!.fetchedGames.count)
             self?.tableView.reloadData()
         }
     }

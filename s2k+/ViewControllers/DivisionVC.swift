@@ -70,6 +70,7 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
             withReuseIdentifier: "\(DivisionSectionHeaderView.self)",
             for: indexPath) as? DivisionSectionHeaderView
           else {
+            #warning("remove before production")
             fatalError("Invalid view type")
         }
         headerView.divisionSectionHeader.text = "Divisions for " + self.leagueName
@@ -86,6 +87,7 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
               let selectedCell = sender as? UICollectionViewCell,
               let index = divisionView.indexPath(for: selectedCell)?.row, segue.identifier == "showTeamsVCSegue"
               else {
+                #warning("remove before production")
                 fatalError("sender is not a UICollectionViewCell or was not found in the collectionView, or segue.identifier is incorrect")
             }
             let dest = segue.destination as? TeamsVC

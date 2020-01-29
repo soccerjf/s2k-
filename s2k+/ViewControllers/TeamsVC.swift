@@ -289,7 +289,6 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.anyLabel.textAlignment = .left
             }
         }
-
         return cell
     }
 

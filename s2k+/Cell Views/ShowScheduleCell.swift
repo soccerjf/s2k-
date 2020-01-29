@@ -17,4 +17,5 @@ class ShowScheduleCell: UITableViewCell {
     @IBOutlet weak var awayTeam: UILabel!
     @IBOutlet weak var division: UILabel!
     @IBOutlet weak var league: UILabel!
+    @IBOutlet weak var city: UILabel!
 }
