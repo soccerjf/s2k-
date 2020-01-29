@@ -14,7 +14,7 @@ class GamesTodayVC: UIViewController {
     @IBAction func datePickerSelected(_ sender: Any) {
         dateToString()
     }
-    
+    var dateToSearch = ""
     @IBAction func findGamesButton(_ sender: Any) {
     }
     @IBOutlet weak var styledButton: UIButton!
@@ -23,6 +23,12 @@ class GamesTodayVC: UIViewController {
     @IBAction func showScheduleHelp(_ sender: Any) {
         helpVC.sourceID = "ShowSchedule"
         self.present(helpVC, animated: false, completion: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+    AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
     }
     override func viewDidLoad() {
         let currentDate = Date()
@@ -38,13 +44,19 @@ class GamesTodayVC: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowScheduleVCSegue" {
+            let backButton = UIBarButtonItem()
+            navigationItem.backBarButtonItem = backButton
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Date Picker", style: .plain, target: nil, action: nil)
             let dest = segue.destination as? ShowScheduleVC
-            dest?.gameDate = gamesToday.text!
+            dest?.gameDateFormatted = gamesToday.text!
+            dest?.gameDate = dateToSearch
         }
     }
     func dateToString(){
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.full
         gamesToday.text = dateFormatter.string(from: datePicked.date)
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateToSearch = dateFormatter.string(from: datePicked.date)
     }
 }

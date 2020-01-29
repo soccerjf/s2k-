@@ -107,3 +107,7 @@ struct ClubResource: APIResource {
     typealias ModelType = Club
     var queryItems: [URLQueryItem]
 }
+struct GameResource: APIResource {
+    typealias ModelType = Schedule
+    var queryItems: [URLQueryItem]
+}

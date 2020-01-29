@@ -125,6 +125,11 @@ struct Schedule {
     let gameLong: String
     let gameCup: String
     let gameOrgDate: String
+    let gameTier: String
+    let gameCity: String
+    let gameAgeGroup: String
+    let gameGender: String
+    let gameLeague: String
 }
 
 extension Schedule: Decodable {
@@ -147,6 +152,11 @@ extension Schedule: Decodable {
         case gameLong
         case gameCup
         case gameOrgDate
+        case gameTier
+        case gameCity
+        case gameAgeGroup
+        case gameGender
+        case gameLeague
     }
 }
 struct Club {
