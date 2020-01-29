@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="S0v-2z-xXh">
-                            <rect key="frame" x="0.0" y="147" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="163" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem title="Alternate Lookup" id="QgS-Ir-mmT">
@@ -36,11 +36,11 @@
                             </items>
                         </toolbar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leagueCell" rowHeight="91" id="W1a-OM-ouA" customClass="LeagueCell" customModule="s2k_" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="91"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="leagueCell" id="W1a-OM-ouA" customClass="LeagueCell" customModule="s2k_" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W1a-OM-ouA" id="35l-uo-cOR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXX-WZ-egD">
@@ -51,13 +51,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="&lt;leagueNameLabel&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoH-qh-6fK">
-                                            <rect key="frame" x="85" y="8" width="159" height="5"/>
+                                            <rect key="frame" x="85" y="8" width="159" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.23636744966442952" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Start Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iup-zV-PLN">
-                                            <rect key="frame" x="90" y="21" width="106" height="25"/>
+                                            <rect key="frame" x="90" y="37" width="106" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="QKL-1J-ADL"/>
                                             </constraints>
@@ -66,7 +66,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League End Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV7-75-4fS">
-                                            <rect key="frame" x="90" y="56" width="99.5" height="25"/>
+                                            <rect key="frame" x="90" y="72" width="99.5" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="LdF-S6-6lc"/>
                                             </constraints>
@@ -74,17 +74,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueStartDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-43-A8X">
-                                            <rect key="frame" x="209.5" y="18" width="154" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueEndDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7R-Mp-sPK">
+                                            <rect key="frame" x="209.5" y="74" width="154" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="Fud-K7-jD1"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueEndDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7R-Mp-sPK">
-                                            <rect key="frame" x="209.5" y="58" width="154" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="Fud-K7-jD1"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;leagueStartDate&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-43-A8X">
+                                            <rect key="frame" x="209" y="39" width="154" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                         <constraint firstItem="PoH-qh-6fK" firstAttribute="leading" secondItem="6m6-mG-J4W" secondAttribute="leading" constant="85" id="KnE-4i-aTX"/>
                                         <constraint firstItem="r7R-Mp-sPK" firstAttribute="centerY" secondItem="eV7-75-4fS" secondAttribute="centerY" id="LgM-ki-rd1"/>
                                         <constraint firstItem="r7R-Mp-sPK" firstAttribute="leading" secondItem="eV7-75-4fS" secondAttribute="trailing" constant="20" id="TRr-kR-F7s"/>
-                                        <constraint firstItem="eBZ-43-A8X" firstAttribute="top" secondItem="PoH-qh-6fK" secondAttribute="bottom" constant="5" id="Xhj-n2-s9V"/>
+                                        <constraint firstItem="eBZ-43-A8X" firstAttribute="top" secondItem="PoH-qh-6fK" secondAttribute="bottom" constant="9.5" id="Xhj-n2-s9V"/>
                                         <constraint firstItem="r7R-Mp-sPK" firstAttribute="centerX" secondItem="eBZ-43-A8X" secondAttribute="centerX" id="aJ8-Xe-BP9"/>
                                         <constraint firstItem="tXX-WZ-egD" firstAttribute="top" secondItem="6m6-mG-J4W" secondAttribute="top" constant="10" id="g7z-iD-IWp"/>
                                         <constraint firstItem="eBZ-43-A8X" firstAttribute="leading" secondItem="Iup-zV-PLN" secondAttribute="trailing" constant="13.5" id="jkf-fj-4OW"/>

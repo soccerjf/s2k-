@@ -42,7 +42,8 @@ class GoogleAds: NSObject, GADBannerViewDelegate {
 
     func loadAdMob() {
         let request = GADRequest()
-        request.testDevices = [(kGADSimulatorID as! String)]
+        #warning("remove line below for production")
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4f88f5a0c11bc5368aa61f3d99100517" ]
         adBannerView.load(request)
     }
 }

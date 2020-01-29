@@ -229,6 +229,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="JaG-yN-d0v">
+                        <barButtonItem key="backBarButtonItem" title="Leagues" id="SZr-bN-d8L"/>
                         <barButtonItem key="rightBarButtonItem" title="Help" image="questionmark" catalog="system" id="x0T-ge-zAB">
                             <connections>
                                 <action selector="FoundTeamHelp:" destination="y8r-9h-bxl" id="B7P-vV-MBW"/>
