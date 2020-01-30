@@ -39,7 +39,6 @@ class LeagueVC: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-        googleAdMobBanner.loadAdMob()
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
@@ -133,8 +132,10 @@ private extension LeagueVC {
           } else {
               let networkActivity = NetworkActivity(text: "Network ISSUE")
               self.view.addSubview(networkActivity)
+             showAlert(title: "ERROR", message: "Not able to connect to the internet")
           }
         } else {
+            googleAdMobBanner.loadAdMob()
             NetworkStatus.shared.startMonitoring()
         }
     }
@@ -149,12 +150,7 @@ private extension LeagueVC {
         leagueRequest.load { [weak self] (leagues: [League]?) in
             guard ((self?.fetchedLeagues = leagues!) != nil)
                  else {
-                    let alert = UIAlertController(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                        (alertAction: UIAlertAction!) in
-                        alert.dismiss(animated: true, completion: nil)
-                    }))
-                    self!.present(alert, animated: true, completion: nil)
+                    self!.showAlert(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.")
                     return
             }
             self?.networkActivity.hide()

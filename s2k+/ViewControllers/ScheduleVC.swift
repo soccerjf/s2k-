@@ -53,12 +53,7 @@ class ScheduleVC: UITableViewController {
             self.longitude = Double(games[index!].gameLong) ?? 0.000
             self.latitude = Double(games[index!].gameLat) ?? 0.000
             if longitude == 0.00 || latitude == 0.00 {
-                let alert = UIAlertController(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                    (alertAction: UIAlertAction!) in
-                    alert.dismiss(animated: true, completion: nil)
-                }))
-                present(alert, animated: true, completion: nil)
+                showAlert(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map")
             } else {
                 let dest = segue.destination as? MapVC
                 dest?.latitude = self.latitude

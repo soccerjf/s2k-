@@ -45,12 +45,7 @@ class FoundTeamsVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if fetchedTeams[indexPath.row].teamID == "-1" {
-            let alert = UIAlertController(title: "NOTE", message: "\(fetchedTeams[indexPath.row].teamName)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                (alertAction: UIAlertAction!) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            present(alert, animated: true, completion: nil)
+            self.showAlert(title: "Note", message: "\(fetchedTeams[indexPath.row].teamName)")
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "foundTeamCell", for: indexPath) as! FoundTeamsCell
         cell.foundTeamName.text = fetchedTeams[indexPath.row].teamName
@@ -79,12 +74,7 @@ private extension FoundTeamsVC {
         teamRequest.load { [weak self] (teams: [Team]?) in
             guard ((self?.fetchedTeams = teams!) != nil)
                  else {
-                    let alert = UIAlertController(title: "Error", message: "Fetching Search Team Data from S2K failed, pleae try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                        (alertAction: UIAlertAction!) in
-                        alert.dismiss(animated: true, completion: nil)
-                    }))
-                    self!.present(alert, animated: true, completion: nil)
+                    self!.showAlert(title: "Error", message: "Fetching Search Team Data from S2K failed, pleae try again later.")
                     return
             }
             self?.tableView.reloadData()

@@ -88,10 +88,7 @@ class SearchByAgeGroupVC: UIViewController {
         if ageGroupSelected == "" {errorMsg += " You need to select an Age Group."}
         if clubSelected == "" {errorMsg += " You need to select a Club."}
         if errorMsg != "" {
-            let alert = UIAlertController(title: "Error", message: errorMsg, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true, completion: nil)
+            showAlert(title: "Error", message: errorMsg)
         }
     }
     @IBOutlet weak var styledButton: UIButton!
@@ -174,13 +171,8 @@ private extension SearchByAgeGroupVC {
         clubRequest.load { [weak self] (clubs: [Club]?) in
             guard ((self?.fetchedClubs = clubs!) != nil)
                  else {
-                    let alert = UIAlertController(title: "Error", message: "Fetching Club Data from S2K failed, pleae try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                        (alertAction: UIAlertAction!) in
-                        alert.dismiss(animated: true, completion: nil)
-                    }))
-                    self!.present(alert, animated: true, completion: nil)
-                    return
+                    self!.showAlert(title: "Error", message: "Fetching Club Data from S2K failed, pleae try again later.")
+                return
             }
             self?.pickerList.reloadAllComponents()
         }
