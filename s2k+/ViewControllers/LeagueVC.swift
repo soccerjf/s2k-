@@ -42,6 +42,7 @@ class LeagueVC: UITableViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
+        googleAdMobBanner.loadAdMob()
     }
 
  
@@ -132,10 +133,14 @@ private extension LeagueVC {
           } else {
               let networkActivity = NetworkActivity(text: "Network ISSUE")
               self.view.addSubview(networkActivity)
-             showAlert(title: "ERROR", message: "Not able to connect to the internet")
-          }
+              if let presented = self.presentedViewController {
+                presented.removeFromParent()
+              }
+              if self.presentedViewController == nil {
+                showAlert(title: "ERROR", message: "Not able to connect to the internet")
+              }
+            }
         } else {
-            googleAdMobBanner.loadAdMob()
             NetworkStatus.shared.startMonitoring()
         }
     }
@@ -149,14 +154,14 @@ private extension LeagueVC {
         request = leagueRequest
         leagueRequest.load { [weak self] (leagues: [League]?) in
             guard ((self?.fetchedLeagues = leagues!) != nil)
-                 else {
-                    if let presented = self?.presentedViewController {
-                        presented.removeFromParent()
-                      }
-                    if self?.presentedViewController == nil {
-                        self!.showAlert(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.")
-                    }
-                    return
+             else {
+                if let presented = self?.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if self?.presentedViewController == nil {
+                    self!.showAlert(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.")
+                }
+                return
             }
             self?.networkActivity.hide()
             self?.tableView.reloadData()

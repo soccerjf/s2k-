@@ -48,7 +48,9 @@ class FoundTeamsVC: UITableViewController {
             if let presented = self.presentedViewController {
                 presented.removeFromParent()
               }
-            self.showAlert(title: "Note", message: "\(fetchedTeams[indexPath.row].teamName)")
+            if self.presentedViewController == nil {
+                self.showAlert(title: "Note", message: "\(fetchedTeams[indexPath.row].teamName)")
+            }
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "foundTeamCell", for: indexPath) as! FoundTeamsCell
         cell.foundTeamName.text = fetchedTeams[indexPath.row].teamName

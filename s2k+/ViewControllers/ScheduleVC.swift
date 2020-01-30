@@ -57,7 +57,7 @@ class ScheduleVC: UITableViewController {
                     presented.removeFromParent()
                   }
                 if self.presentedViewController == nil {
-                showAlert(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map")
+                    showAlert(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map")
                 }
             } else {
                 let dest = segue.destination as? MapVC
@@ -109,8 +109,12 @@ class ScheduleVC: UITableViewController {
                         }
                     }
                 } else{
-                    #warning("need better msg")
-                print("failed to save event with error : \(String(describing: error)) or access not granted")
+                    if let presented = self.presentedViewController {
+                        presented.removeFromParent()
+                      }
+                    if self.presentedViewController == nil {
+                        self.showAlert(title: "Error", message: "failed to save event with error : \(String(describing: error)) or access not granted")
+                    }
                 }
             }
         }

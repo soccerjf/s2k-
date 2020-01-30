@@ -35,11 +35,6 @@ class TeamsVC: UIViewController {
             gridLayout.stickyColumnsCount = 1
         }
     }
-
-    @IBAction func showPastGamesItem(_ sender: Any) {
-    }
-    @IBAction func showScheduleItem(_ sender: Any) {
-    }
     @IBOutlet weak var showScheduleItem: UIBarButtonItem!
     @IBOutlet weak var showPastGamesItem: UIBarButtonItem!
     @IBOutlet weak var teamsView: UICollectionView!{
@@ -70,7 +65,18 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         /* + 1 to allow for a header */
-        let trueRows = fetchedTeams.count + 1
+        var trueRows = fetchedTeams.count + 1
+        if fetchedTeams.count == 1 {
+            if fetchedTeams[0].teamID == "-1" {
+                if let presented = self.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if presentedViewController == nil {
+                     showAlert(title: "Note", message: "\(fetchedTeams[currentRow].teamName)")
+                  }
+                trueRows = 0
+            }
+        }
         return trueRows
     }
 
@@ -112,14 +118,6 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             }
         } else {
             currentRow = indexPath.section - 1
-            if fetchedTeams[currentRow].teamID == "-1" {
-                if let presented = self.presentedViewController {
-                    presented.removeFromParent()
-                  }
-                if presentedViewController == nil {
-                     showAlert(title: "Note", message: "\(fetchedTeams[currentRow].teamName)")
-                  }
-            }
             if indexPath.section == 1 && indexPath.item == 1 {
                 teamRank = ""
                 previousRank = ""
@@ -374,12 +372,12 @@ private extension TeamsVC {
         teamRequest.load { [weak self] (teams: [Team]?) in
         guard ((self?.fetchedTeams = teams!) != nil)
              else {
-                let alert = UIAlertController(title: "Error", message: "Fetching Team Data from S2K failed, pleae try again later.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                    (alertAction: UIAlertAction!) in
-                    alert.dismiss(animated: true, completion: nil)
-                }))
-                self!.present(alert, animated: true, completion: nil)
+                if let presented = self?.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if self?.presentedViewController == nil {
+                    self!.showAlert(title: "Error", message: "Fetching Team Data from S2K failed, pleae try again later.")
+                }
                 return
         }
         self?.networkActivity.hide()

@@ -98,7 +98,12 @@ private extension ShowScheduleVC {
         gameRequest.load { [weak self] (games: [Schedule]?) in
             guard ((self?.fetchedGames = games!) != nil)
                  else {
-                    self!.showAlert(title: "Error", message: "Fetching Search Game Data from S2K failed, pleae try again later.")
+                    if let presented = self?.presentedViewController {
+                        presented.removeFromParent()
+                      }
+                    if self?.presentedViewController == nil {
+                        self!.showAlert(title: "Error", message: "Fetching Search Game Data from S2K failed, pleae try again later.")
+                    }
                     return
             }
             self?.tableView.reloadData()
