@@ -113,7 +113,12 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             currentRow = indexPath.section - 1
             if fetchedTeams[currentRow].teamID == "-1" {
-                showAlert(title: "Note", message: "\(fetchedTeams[currentRow].teamName)")
+                if let presented = self.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if presentedViewController == nil {
+                     showAlert(title: "Note", message: "\(fetchedTeams[currentRow].teamName)")
+                  }
             }
             if indexPath.section == 1 && indexPath.item == 1 {
                 teamRank = ""

@@ -53,7 +53,12 @@ class ScheduleVC: UITableViewController {
             self.longitude = Double(games[index!].gameLong) ?? 0.000
             self.latitude = Double(games[index!].gameLat) ?? 0.000
             if longitude == 0.00 || latitude == 0.00 {
+                if let presented = self.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if self.presentedViewController == nil {
                 showAlert(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map")
+                }
             } else {
                 let dest = segue.destination as? MapVC
                 dest?.latitude = self.latitude
@@ -96,10 +101,12 @@ class ScheduleVC: UITableViewController {
                         print("failed to save event with error : \(error)")
                     }
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Game Added", message: "To be played on  \(self.games[indexPath.row].gameDate)", preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alert.addAction(okAction)
-                        self.present(alert, animated: true, completion: nil)
+                        if let presented = self.presentedViewController {
+                            presented.removeFromParent()
+                          }
+                        if self.presentedViewController == nil {
+                            self.showAlert(title: "Game Added", message: "To be played on  \(self.games[indexPath.row].gameDate)")
+                        }
                     }
                 } else{
                     #warning("need better msg")

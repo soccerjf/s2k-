@@ -150,7 +150,12 @@ private extension LeagueVC {
         leagueRequest.load { [weak self] (leagues: [League]?) in
             guard ((self?.fetchedLeagues = leagues!) != nil)
                  else {
-                    self!.showAlert(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.")
+                    if let presented = self?.presentedViewController {
+                        presented.removeFromParent()
+                      }
+                    if self?.presentedViewController == nil {
+                        self!.showAlert(title: "Error", message: "Fetching League Data from S2K failed, pleae try again later.")
+                    }
                     return
             }
             self?.networkActivity.hide()

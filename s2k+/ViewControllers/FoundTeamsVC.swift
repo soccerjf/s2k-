@@ -45,6 +45,9 @@ class FoundTeamsVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if fetchedTeams[indexPath.row].teamID == "-1" {
+            if let presented = self.presentedViewController {
+                presented.removeFromParent()
+              }
             self.showAlert(title: "Note", message: "\(fetchedTeams[indexPath.row].teamName)")
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "foundTeamCell", for: indexPath) as! FoundTeamsCell
@@ -74,7 +77,12 @@ private extension FoundTeamsVC {
         teamRequest.load { [weak self] (teams: [Team]?) in
             guard ((self?.fetchedTeams = teams!) != nil)
                  else {
-                    self!.showAlert(title: "Error", message: "Fetching Search Team Data from S2K failed, pleae try again later.")
+                    if let presented = self?.presentedViewController {
+                        presented.removeFromParent()
+                      }
+                    if self?.presentedViewController == nil {
+                        self!.showAlert(title: "Error", message: "Fetching Search Team Data from S2K failed, pleae try again later.")
+                    }
                     return
             }
             self?.tableView.reloadData()

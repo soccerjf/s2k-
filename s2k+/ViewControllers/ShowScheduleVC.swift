@@ -48,12 +48,12 @@ class ShowScheduleVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showScheduleCell", for: indexPath) as! ShowScheduleCell
         if fetchedGames[indexPath.row].gameID == "-1" {
-            let alert = UIAlertController(title: "NOTE", message: "\(fetchedGames[indexPath.row].gameHomeTeam)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                (alertAction: UIAlertAction!) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            present(alert, animated: true, completion: nil)
+            if let presented = self.presentedViewController {
+                presented.removeFromParent()
+              }
+            if self.presentedViewController == nil {
+                showAlert(title: "Note", message: "\(fetchedGames[indexPath.row].gameHomeTeam)")
+            }
         }
         cell.ageGroupGender.text = fetchedGames[indexPath.row].gameAgeGroup + fetchedGames[indexPath.row].gameGender
         cell.homeTeam.text = fetchedGames[indexPath.row].gameHomeTeam
@@ -72,12 +72,12 @@ class ShowScheduleVC: UITableViewController {
         self.longitude = Double(fetchedGames[indexPath.row].gameLong) ?? 0.000
         self.latitude = Double(fetchedGames[indexPath.row].gameLat) ?? 0.000
         if longitude == 0.00 || latitude == 0.00 {
-            let alert = UIAlertController(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                (alertAction: UIAlertAction!) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            present(alert, animated: true, completion: nil)
+            if let presented = self.presentedViewController {
+                presented.removeFromParent()
+              }
+            if self.presentedViewController == nil {
+                showAlert(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map")
+            }
         } else {
             mapVC.fieldName = fetchedGames[indexPath.row].gameLocation + " - " + gameDate
             mapVC.latitude = self.latitude
@@ -98,12 +98,7 @@ private extension ShowScheduleVC {
         gameRequest.load { [weak self] (games: [Schedule]?) in
             guard ((self?.fetchedGames = games!) != nil)
                  else {
-                    let alert = UIAlertController(title: "Error", message: "Fetching Search Game Data from S2K failed, pleae try again later.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
-                        (alertAction: UIAlertAction!) in
-                        alert.dismiss(animated: true, completion: nil)
-                    }))
-                    self!.present(alert, animated: true, completion: nil)
+                    self!.showAlert(title: "Error", message: "Fetching Search Game Data from S2K failed, pleae try again later.")
                     return
             }
             self?.tableView.reloadData()
