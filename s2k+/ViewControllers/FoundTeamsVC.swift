@@ -44,6 +44,14 @@ class FoundTeamsVC: UITableViewController {
         return fetchedTeams.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if fetchedTeams[indexPath.row].teamID == "-1" {
+            let alert = UIAlertController(title: "NOTE", message: "\(fetchedTeams[indexPath.row].teamName)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                (alertAction: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            present(alert, animated: true, completion: nil)
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "foundTeamCell", for: indexPath) as! FoundTeamsCell
         cell.foundTeamName.text = fetchedTeams[indexPath.row].teamName
         cell.foundTeamGender.text = teamGender

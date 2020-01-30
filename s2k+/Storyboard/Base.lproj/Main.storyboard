@@ -449,16 +449,20 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wqg-86-6tP">
                                 <rect key="frame" x="8" y="823" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tMP-oK-cxg"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="tMP-oK-cxg">
+                                        <connections>
+                                            <action selector="showPastGamesItem:" destination="qLf-ff-wgq" id="h1O-00-EJ4"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Past Games" image="book" catalog="system" id="5eB-k1-D5H">
                                         <connections>
-                                            <segue destination="i34-04-M18" kind="show" identifier="PastGamesSegue" id="eR8-IU-nnQ"/>
+                                            <segue destination="i34-04-M18" kind="show" identifier="PastGamesSegue" id="L7U-NZ-BM1"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="7ky-qC-9tc"/>
                                     <barButtonItem title="Schedule" image="calendar" catalog="system" id="URJ-4L-Sc5">
                                         <connections>
-                                            <segue destination="qGK-Mf-5sP" kind="show" identifier="ScheduleSegue" id="6sd-3z-WPE"/>
+                                            <segue destination="qGK-Mf-5sP" kind="show" identifier="ScheduleSegue" id="383-zZ-XBg"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="D29-4O-U57"/>
@@ -488,8 +492,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gridLayout" destination="F9Y-Cr-C4o" id="5vb-ix-5Oe"/>
-                        <outlet property="showPastGamesItem" destination="URJ-4L-Sc5" id="kyc-Hm-Qdc"/>
-                        <outlet property="showScheduleItem" destination="5eB-k1-D5H" id="V3E-B4-Wkc"/>
+                        <outlet property="showPastGamesItem" destination="5eB-k1-D5H" id="gZa-fX-Yvf"/>
+                        <outlet property="showScheduleItem" destination="URJ-4L-Sc5" id="ObI-nK-ZUg"/>
                         <outlet property="teamsView" destination="3M0-28-1e8" id="k8q-VK-OWs"/>
                     </connections>
                 </viewController>
@@ -497,7 +501,7 @@
             </objects>
             <point key="canvasLocation" x="-243.47826086956525" y="-587.27678571428567"/>
         </scene>
-        <!--Past GamesVC-->
+        <!--Past Games-->
         <scene sceneID="hYk-D1-JFT">
             <objects>
                 <viewController id="i34-04-M18" customClass="PastGamesVC" customModule="s2k_" customModuleProvider="target" sceneMemberID="viewController">
@@ -655,7 +659,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UFV-jl-upi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nue-bw-FhR"/>
+                    <navigationItem key="navigationItem" title="Past Games" id="nue-bw-FhR"/>
                     <connections>
                         <outlet property="pastGamesView" destination="3we-bl-oYv" id="dZN-CT-NKJ"/>
                     </connections>

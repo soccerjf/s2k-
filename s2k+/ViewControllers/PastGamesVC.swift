@@ -18,7 +18,7 @@ class PastGamesVC: UIViewController {
     @IBOutlet weak var pastGamesView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Past Games for: " + teamName
+        navigationItem.title = teamName
     }
     
 }
@@ -30,12 +30,6 @@ extension PastGamesVC: UICollectionViewDelegate, UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if games[indexPath.row].gameCup != "N/A" {
-            cupGame = " (Cup Game)"
-        } else {
-            cupGame = ""
-        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pastGamesCell", for: indexPath) as! PastGamesCell
         if games[indexPath.row].gameHomeTeamID == teamID {
             homeOrAway = " (Home)"
@@ -72,7 +66,9 @@ extension PastGamesVC: UICollectionViewDelegate, UICollectionViewDataSource{
                 cell.gameResults.textColor = UIColor.gray
             }
         }
-        cell.gameResults.text! += cupGame
+        if games[indexPath.row].gameCup != "N/A" {
+            cell.gameResults.text! += " (Cup Game)"
+        }
         cell.gameDate.text = games[indexPath.row].gameDate + homeOrAway
         
         return cell

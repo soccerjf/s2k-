@@ -36,8 +36,12 @@ class TeamsVC: UIViewController {
         }
     }
 
-    @IBOutlet weak var showPastGamesItem: UIBarButtonItem!
+    @IBAction func showPastGamesItem(_ sender: Any) {
+    }
+    @IBAction func showScheduleItem(_ sender: Any) {
+    }
     @IBOutlet weak var showScheduleItem: UIBarButtonItem!
+    @IBOutlet weak var showPastGamesItem: UIBarButtonItem!
     @IBOutlet weak var teamsView: UICollectionView!{
         didSet {
             teamsView.bounces = false
@@ -71,7 +75,6 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "teamCell", for: indexPath) as! TeamCell
         if indexPath.section == 0 {
             cell.backgroundColor = UIColor(red:0.23, green:0.42, blue:0.36, alpha:1.0)
@@ -109,6 +112,14 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             }
         } else {
             currentRow = indexPath.section - 1
+            if fetchedTeams[currentRow].teamID == "-1" {
+                let alert = UIAlertController(title: "NOTE", message: "\(fetchedTeams[currentRow].teamName)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                    (alertAction: UIAlertAction!) in
+                    alert.dismiss(animated: true, completion: nil)
+                }))
+                present(alert, animated: true, completion: nil)
+            }
             if indexPath.section == 1 && indexPath.item == 1 {
                 teamRank = ""
                 previousRank = ""
@@ -293,7 +304,9 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        let cell = teamsView.cellForItem(at: lastSelectedTeam)
+        cell?.layer.borderWidth = 0.0
+        cell?.layer.borderColor = UIColor.white.cgColor
         if segue.identifier == "TeamHelpSegue" && self.showStandings == "Yes" {
             if let dest = segue.destination as? HelpVC {
                 dest.sourceID = "Standings"
@@ -305,28 +318,20 @@ extension TeamsVC: UICollectionViewDataSource, UICollectionViewDelegate {
             }
         }
         if segue.identifier == "PastGamesSegue" {
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
             let backButton = UIBarButtonItem()
-            backButton.title = "Teams"
             navigationItem.backBarButtonItem = backButton
-            let cell = teamsView.cellForItem(at: lastSelectedTeam)
-            cell?.layer.borderWidth = 0.0
-            cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? PastGamesVC
             let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
             let playedGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! == false }
             dest?.games = playedGames as! [Schedule]
             dest?.teamName = self.fetchedTeams[lastSelectedTeam[0]-1].teamName
             dest?.teamID = self.fetchedTeams[lastSelectedTeam[0]-1].teamID
-            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
         }
         if segue.identifier == "ScheduleSegue" {
             navigationItem.backBarButtonItem = UIBarButtonItem(title: "Teams", style: .plain, target: nil, action: nil)
             let backButton = UIBarButtonItem()
-            backButton.title = "Teams"
             navigationItem.backBarButtonItem = backButton
-            let cell = teamsView.cellForItem(at: lastSelectedTeam)
-            cell?.layer.borderWidth = 0.0
-            cell?.layer.borderColor = UIColor.white.cgColor
             let dest = segue.destination as? ScheduleVC
             let tempGames = self.fetchedTeams[lastSelectedTeam[0]-1].teamSchedule
             let scheduledGames = tempGames.filter{ ($0?.gameStatus.contains("0"))! }

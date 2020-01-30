@@ -107,6 +107,7 @@ class ScheduleVC: UITableViewController {
                         self.present(alert, animated: true, completion: nil)
                     }
                 } else{
+                    #warning("need better msg")
                 print("failed to save event with error : \(String(describing: error)) or access not granted")
                 }
             }

@@ -62,7 +62,7 @@ class APIRequest<Resource: APIResource> {
 extension APIRequest: NetworkServices {
     func decode(_ data: Data) -> [Resource.ModelType]? {
         let wrapper = try? JSONDecoder().decode(Wrapper<Resource.ModelType>.self, from: data)
-        #warning ("take out of production verion")
+        #warning ("take out of production version")
         let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
         if let keys = dict?.keys {
             let mirror = Mirror(reflecting: wrapper as Any)
@@ -88,6 +88,7 @@ extension APIResource {
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
+        #warning("change for production")
         components.host = "sandbox.8thline.org"
         components.path = "/s2kAPIData.php"
         components.queryItems = queryItems

@@ -12,8 +12,15 @@ class ShowScheduleVC: UITableViewController {
     
     var gameDate = ""
     var gameDateFormatted = ""
+    var latitude = 0.000
+    var longitude = 0.000
     var fetchedGames = [Schedule]()
     private var request: AnyObject?
+
+    @IBAction func ShowScheduleHelp(_ sender: Any) {
+        helpVC.sourceID = "ShowGames"
+        self.present(helpVC, animated: false, completion: nil)
+    }
     let helpVC: HelpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "helpvc") as! HelpVC
     let mapVC: MapVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapvc") as! MapVC
 
@@ -40,6 +47,14 @@ class ShowScheduleVC: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showScheduleCell", for: indexPath) as! ShowScheduleCell
+        if fetchedGames[indexPath.row].gameID == "-1" {
+            let alert = UIAlertController(title: "NOTE", message: "\(fetchedGames[indexPath.row].gameHomeTeam)", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                (alertAction: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            present(alert, animated: true, completion: nil)
+        }
         cell.ageGroupGender.text = fetchedGames[indexPath.row].gameAgeGroup + fetchedGames[indexPath.row].gameGender
         cell.homeTeam.text = fetchedGames[indexPath.row].gameHomeTeam
         cell.awayTeam.text = fetchedGames[indexPath.row].gameAwayTeam
@@ -48,7 +63,28 @@ class ShowScheduleVC: UITableViewController {
         cell.league.text = fetchedGames[indexPath.row].gameLeague
         cell.gameTime.text = fetchedGames[indexPath.row].gameTime
         cell.city.text = fetchedGames[indexPath.row].gameCity
+        if fetchedGames[indexPath.row].gameCup != "N/A" {
+            cell.gameTime.text! += " (Cup Game)"
+        } 
         return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.longitude = Double(fetchedGames[indexPath.row].gameLong) ?? 0.000
+        self.latitude = Double(fetchedGames[indexPath.row].gameLat) ?? 0.000
+        if longitude == 0.00 || latitude == 0.00 {
+            let alert = UIAlertController(title: "Error", message: "The co-ordinates for this field have not been set, cannot display a Map", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {
+                (alertAction: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            present(alert, animated: true, completion: nil)
+        } else {
+            mapVC.fieldName = fetchedGames[indexPath.row].gameLocation + " - " + gameDate
+            mapVC.latitude = self.latitude
+            mapVC.longitude = self.longitude
+            mapVC.gameDetails = fetchedGames[indexPath.row].gameHomeTeam + " vs " + fetchedGames[indexPath.row].gameAwayTeam + " @ " + fetchedGames[indexPath.row].gameTime
+        }
+        self.navigationController?.pushViewController(mapVC, animated: true)
     }
 }
 private extension ShowScheduleVC {

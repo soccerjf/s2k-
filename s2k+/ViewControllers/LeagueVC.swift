@@ -49,9 +49,9 @@ class LeagueVC: UITableViewController {
 // MARK: set the section info
     override func tableView (_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 80))
             let label = UILabel()
-            label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+            label.frame = CGRect.init(x: 5, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-50)
             label.text = "Tap on League Logo to see its divisions"
             label.textAlignment = .center
             label.textColor = UIColor.orange
