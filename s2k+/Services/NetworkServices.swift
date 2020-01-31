@@ -61,12 +61,10 @@ class APIRequest<Resource: APIResource> {
 extension APIRequest: NetworkServices {
     func decode(_ data: Data) -> [Resource.ModelType]? {
         let wrapper = try? JSONDecoder().decode(Wrapper<Resource.ModelType>.self, from: data)
-        #warning ("take out of production version")
         let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
         if let keys = dict?.keys {
             let mirror = Mirror(reflecting: wrapper as Any)
             if keys.count != mirror.children.count {
-                fatalError("JSON struct not properly defined")
             }
         }
         return wrapper?.items

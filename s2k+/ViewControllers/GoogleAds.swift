@@ -18,7 +18,7 @@ class GoogleAds: NSObject, GADBannerViewDelegate {
         self.sourceTableViewController = sourceTableViewController
         adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         super.init()
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBannerView.adUnitID = "ca-app-pub-1456354134093094~1862781169"
         adBannerView.delegate = self
         adBannerView.rootViewController = sourceTableViewController
     }
@@ -42,8 +42,8 @@ class GoogleAds: NSObject, GADBannerViewDelegate {
 
     func loadAdMob() {
         let request = GADRequest()
-        #warning("remove line below for production")
-        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4f88f5a0c11bc5368aa61f3d99100517" ]
+//      #warning("remove line below for production")
+//       GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["4f88f5a0c11bc5368aa61f3d99100517" ]
         adBannerView.load(request)
     }
 }
