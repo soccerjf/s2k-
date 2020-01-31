@@ -46,7 +46,7 @@ class GamesTodayVC: UIViewController {
         if segue.identifier == "ShowScheduleVCSegue" {
             let backButton = UIBarButtonItem()
             navigationItem.backBarButtonItem = backButton
-            navigationItem.backBarButtonItem = UIBarButtonItem(title: "Date Picker", style: .plain, target: nil, action: nil)
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             let dest = segue.destination as? ShowScheduleVC
             dest?.gameDateFormatted = gamesToday.text!
             dest?.gameDate = dateToSearch

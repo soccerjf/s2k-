@@ -24,7 +24,6 @@ extension NetworkServices {
         let task = session.dataTask(with: url, completionHandler: { [weak self] (data: Data?, response: URLResponse?, error: Error?) -> Void in
             guard let data = data else {
                 completion(nil)
-                #warning ("TODO: capture error and react")
                 return
             }
             completion(self?.decode(data))
@@ -88,8 +87,7 @@ extension APIResource {
     var url: URL {
         var components = URLComponents()
         components.scheme = "https"
-        #warning("change for production")
-        components.host = "sandbox.8thline.org"
+        components.host = "ghsl.ca"
         components.path = "/s2kAPIData.php"
         components.queryItems = queryItems
         return components.url!

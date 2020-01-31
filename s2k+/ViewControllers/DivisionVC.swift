@@ -70,8 +70,13 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
             withReuseIdentifier: "\(DivisionSectionHeaderView.self)",
             for: indexPath) as? DivisionSectionHeaderView
           else {
-            #warning("remove before production")
-            fatalError("Invalid view type")
+            if let presented = self.presentedViewController {
+                presented.removeFromParent()
+              }
+            if self.presentedViewController == nil {
+                self.showAlert(title: "Error", message: "Invalid view type, please contact 8th Line Software, issues@8thline.org")
+            }
+            assert(false, "Invalid element type")
         }
         headerView.divisionSectionHeader.text = "Divisions for " + self.leagueName
         headerView.divisionSectionHeaderHelp.text = "Tap on division section to see teams"
@@ -87,8 +92,13 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
               let selectedCell = sender as? UICollectionViewCell,
               let index = divisionView.indexPath(for: selectedCell)?.row, segue.identifier == "showTeamsVCSegue"
               else {
-                #warning("remove before production")
-                fatalError("sender is not a UICollectionViewCell or was not found in the collectionView, or segue.identifier is incorrect")
+                if let presented = self.presentedViewController {
+                    presented.removeFromParent()
+                  }
+                if self.presentedViewController == nil {
+                    self.showAlert(title: "Error", message: "Invalid UICollectionViewCell, please contact 8th Line Software, issues@8thline.org")
+                }
+                return
             }
             let dest = segue.destination as? TeamsVC
             dest?.divID = division[index].divID
