@@ -9,7 +9,6 @@
 import UIKit
 import Kingfisher
 import Network
-import GoogleMobileAds
 
 class LeagueVC: UITableViewController {
 
@@ -17,10 +16,6 @@ class LeagueVC: UITableViewController {
     var fetchedLeagues = [League]()
     private var request: AnyObject?
     let networkActivity = NetworkActivity(text: "Fetching Leagues")
-
-    lazy var googleAdMobBanner: GoogleAds = {
-        return GoogleAds(sourceTableViewController: self)
-    }()
     
     @IBAction func leagueHelp(_ sender: Any) {
         performSegue(withIdentifier: "LeagueHelpSegue", sender: nil)
@@ -126,7 +121,6 @@ private extension LeagueVC {
     func checkNetwork() {
         if NetworkStatus.shared.isMonitoring {
           if NetworkStatus.shared.isConnected {
-            googleAdMobBanner.loadAdMob()
             self.view.addSubview(networkActivity)
             fetchData(source: DataSource.source, dataType: "0", dataTypeDetail: "0")
           } else {

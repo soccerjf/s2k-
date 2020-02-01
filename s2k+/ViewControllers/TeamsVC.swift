@@ -368,6 +368,7 @@ private extension TeamsVC {
                 URLQueryItem(name: "dataType", value: dataType),
                 URLQueryItem(name: "dataTypeDetail", value: dataTypeDetail)]
         let teamRequest = APIRequest(resource: TeamResource(queryItems: queryItems))
+        print(queryItems)
         request = teamRequest
         teamRequest.load { [weak self] (teams: [Team]?) in
         guard ((self?.fetchedTeams = teams!) != nil)

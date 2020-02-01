@@ -9,7 +9,7 @@
 import Foundation
 
 struct DataSource {
-    static let source = "1"  // 0 is for production database, 1 is for sandbox database
+    static let source = "0"  // 0 is for production database, 1 is for sandbox database
 }
 
 struct League {

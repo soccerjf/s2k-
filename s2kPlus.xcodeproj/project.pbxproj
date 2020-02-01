@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50BE4BA829447AA861540F51 /* Pods_s2kPlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64D2AD6130E29705199DB8C /* Pods_s2kPlus.framework */; };
 		BF5542DA23D797AD005E6D4E /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5542D923D797AD005E6D4E /* MapVC.swift */; };
 		BF64FD7D23CB5609000A1686 /* DivisionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */; };
 		BFA3C89623DDC8C800073FC1 /* AlternateSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA3C89523DDC8C800073FC1 /* AlternateSearch.storyboard */; };
@@ -39,16 +40,15 @@
 		BFD833C623C9144A00F3EA9B /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C523C9144A00F3EA9B /* DataModels.swift */; };
 		BFD833C823C9150400F3EA9B /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C723C9150400F3EA9B /* NetworkServices.swift */; };
 		BFD833CA23C919E200F3EA9B /* NetworkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C923C919E200F3EA9B /* NetworkActivity.swift */; };
-		BFD833CD23C9521000F3EA9B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BFD833CC23C9521000F3EA9B /* Kingfisher */; };
+		BFD833CD23C9521000F3EA9B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */; };
 		BFF3950723CDF97400BC1F6F /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */; };
 		BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */; };
-		BFFFDBA123D9E8B800C28613 /* GoogleAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFFDBA023D9E8B800C28613 /* GoogleAds.swift */; };
-		D918AFB7430D2F46D3351E99 /* Pods_s2k_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66564DADBEEDCA567E6DC24C /* Pods_s2k_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14009D500284DC674386AD89 /* Pods-s2k+.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-s2k+.debug.xcconfig"; path = "Target Support Files/Pods-s2k+/Pods-s2k+.debug.xcconfig"; sourceTree = "<group>"; };
-		66564DADBEEDCA567E6DC24C /* Pods_s2k_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_s2k_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20B3A63797EA853D01C50090 /* Pods-s2kPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-s2kPlus.release.xcconfig"; path = "Target Support Files/Pods-s2kPlus/Pods-s2kPlus.release.xcconfig"; sourceTree = "<group>"; };
+		50DCFD70251CC0C10808B8F9 /* Pods-s2kPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-s2kPlus.debug.xcconfig"; path = "Target Support Files/Pods-s2kPlus/Pods-s2kPlus.debug.xcconfig"; sourceTree = "<group>"; };
 		9C657B485DFA2BC36371C439 /* Pods-s2k+.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-s2k+.release.xcconfig"; path = "Target Support Files/Pods-s2k+/Pods-s2k+.release.xcconfig"; sourceTree = "<group>"; };
 		BF5542D923D797AD005E6D4E /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		BF64FD7C23CB5609000A1686 /* DivisionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		BFD833C923C919E200F3EA9B /* NetworkActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivity.swift; sourceTree = "<group>"; };
 		BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsVC.swift; sourceTree = "<group>"; };
-		BFFFDBA023D9E8B800C28613 /* GoogleAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAds.swift; sourceTree = "<group>"; };
+		D64D2AD6130E29705199DB8C /* Pods_s2kPlus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_s2kPlus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD833CD23C9521000F3EA9B /* Kingfisher in Frameworks */,
-				D918AFB7430D2F46D3351E99 /* Pods_s2k_.framework in Frameworks */,
+				BFD833CD23C9521000F3EA9B /* BuildFile in Frameworks */,
+				50BE4BA829447AA861540F51 /* Pods_s2kPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +105,7 @@
 		53F583BB199BF0851E381FB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				66564DADBEEDCA567E6DC24C /* Pods_s2k_.framework */,
+				D64D2AD6130E29705199DB8C /* Pods_s2kPlus.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,6 +115,8 @@
 			children = (
 				14009D500284DC674386AD89 /* Pods-s2k+.debug.xcconfig */,
 				9C657B485DFA2BC36371C439 /* Pods-s2k+.release.xcconfig */,
+				50DCFD70251CC0C10808B8F9 /* Pods-s2kPlus.debug.xcconfig */,
+				20B3A63797EA853D01C50090 /* Pods-s2kPlus.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -158,7 +160,6 @@
 		BFC17CCD23CA3C8A008AAF4D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				BFFFDBA023D9E8B800C28613 /* GoogleAds.swift */,
 				BFD833C923C919E200F3EA9B /* NetworkActivity.swift */,
 				BFD833C723C9150400F3EA9B /* NetworkServices.swift */,
 				BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */,
@@ -239,7 +240,6 @@
 				BFD833A823C8D7E400F3EA9B /* Sources */,
 				BFD833A923C8D7E400F3EA9B /* Frameworks */,
 				BFD833AA23C8D7E400F3EA9B /* Resources */,
-				A6B01F28A463A59EC8AE46C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,7 +247,7 @@
 			);
 			name = s2kPlus;
 			packageProductDependencies = (
-				BFD833CC23C9521000F3EA9B /* Kingfisher */,
+				BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */,
 			);
 			productName = "s2k+";
 			productReference = BFD833AC23C8D7E400F3EA9B /* s2kPlus.app */;
@@ -278,7 +278,7 @@
 			);
 			mainGroup = BFD833A323C8D7E400F3EA9B;
 			packageReferences = (
-				BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = BFD833AD23C8D7E400F3EA9B /* Products */;
 			projectDirPath = "";
@@ -306,23 +306,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A6B01F28A463A59EC8AE46C2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-s2k+/Pods-s2k+-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-s2k+/Pods-s2k+-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-s2k+/Pods-s2k+-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D9D5076489CB89D5FCF57BE3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -338,7 +321,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-s2k+-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-s2kPlus-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -363,7 +346,6 @@
 				BFC17CC923CA1CAA008AAF4D /* HelpVC.swift in Sources */,
 				BFD833B423C8D7E400F3EA9B /* LeagueVC.swift in Sources */,
 				BFAC023D23D7B25A00F9A47C /* FieldDetails.swift in Sources */,
-				BFFFDBA123D9E8B800C28613 /* GoogleAds.swift in Sources */,
 				BFD833B023C8D7E400F3EA9B /* AppDelegate.swift in Sources */,
 				BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */,
 				BFA3C89D23DF727800073FC1 /* FoundTeamsVC.swift in Sources */,
@@ -523,7 +505,7 @@
 		};
 		BFD833C123C8D7E600F3EA9B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14009D500284DC674386AD89 /* Pods-s2k+.debug.xcconfig */;
+			baseConfigurationReference = 50DCFD70251CC0C10808B8F9 /* Pods-s2kPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -542,7 +524,7 @@
 		};
 		BFD833C223C8D7E600F3EA9B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C657B485DFA2BC36371C439 /* Pods-s2k+.release.xcconfig */;
+			baseConfigurationReference = 20B3A63797EA853D01C50090 /* Pods-s2kPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,7 +565,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -594,9 +576,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFD833CC23C9521000F3EA9B /* Kingfisher */ = {
+		BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
