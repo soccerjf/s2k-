@@ -98,7 +98,7 @@ class ScheduleVC: UITableViewController {
                     do {
                         try eventStore.save(event, span: .thisEvent)
                     } catch let error as NSError {
-                        print("failed to save event with error : \(error)")
+                        self.showAlert(title: "ERROR", message: "failed to save event with error : \(error)")
                     }
                     DispatchQueue.main.async {
                         if let presented = self.presentedViewController {

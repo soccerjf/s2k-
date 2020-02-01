@@ -40,7 +40,7 @@
 		BFD833C623C9144A00F3EA9B /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C523C9144A00F3EA9B /* DataModels.swift */; };
 		BFD833C823C9150400F3EA9B /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C723C9150400F3EA9B /* NetworkServices.swift */; };
 		BFD833CA23C919E200F3EA9B /* NetworkActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD833C923C919E200F3EA9B /* NetworkActivity.swift */; };
-		BFD833CD23C9521000F3EA9B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */; };
+		BFD833CD23C9521000F3EA9B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BFD833CC23C9521000F3EA9B /* Kingfisher */; };
 		BFF3950723CDF97400BC1F6F /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950623CDF97400BC1F6F /* NetworkStatus.swift */; };
 		BFF3950923CE7F8A00BC1F6F /* TeamsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3950823CE7F8A00BC1F6F /* TeamsVC.swift */; };
 /* End PBXBuildFile section */
@@ -94,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD833CD23C9521000F3EA9B /* BuildFile in Frameworks */,
+				BFD833CD23C9521000F3EA9B /* Kingfisher in Frameworks */,
 				50BE4BA829447AA861540F51 /* Pods_s2kPlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +132,7 @@
 		BFA3C89723DDC8EA00073FC1 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				BFD833BA23C8D7E600F3EA9B /* LaunchScreen.storyboard */,
 				BFD833B523C8D7E400F3EA9B /* Main.storyboard */,
 				BFA3C89523DDC8C800073FC1 /* AlternateSearch.storyboard */,
 				BFA3C8A023E0842200073FC1 /* GamesToday.storyboard */,
@@ -223,7 +224,6 @@
 				BFD833AF23C8D7E400F3EA9B /* AppDelegate.swift */,
 				BFD833B123C8D7E400F3EA9B /* SceneDelegate.swift */,
 				BFD833B823C8D7E600F3EA9B /* Assets.xcassets */,
-				BFD833BA23C8D7E600F3EA9B /* LaunchScreen.storyboard */,
 				BFD833BD23C8D7E600F3EA9B /* Info.plist */,
 			);
 			path = "s2k+";
@@ -247,7 +247,7 @@
 			);
 			name = s2kPlus;
 			packageProductDependencies = (
-				BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */,
+				BFD833CC23C9521000F3EA9B /* Kingfisher */,
 			);
 			productName = "s2k+";
 			productReference = BFD833AC23C8D7E400F3EA9B /* s2kPlus.app */;
@@ -278,7 +278,7 @@
 			);
 			mainGroup = BFD833A323C8D7E400F3EA9B;
 			packageReferences = (
-				BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */,
+				BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = BFD833AD23C8D7E400F3EA9B /* Products */;
 			projectDirPath = "";
@@ -565,7 +565,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */ = {
+		BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -576,9 +576,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFD833CC23C9521000F3EA9B /* SwiftPackageProductDependency */ = {
+		BFD833CC23C9521000F3EA9B /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFD833CB23C9521000F3EA9B /* RemoteSwiftPackageReference */;
+			package = BFD833CB23C9521000F3EA9B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
