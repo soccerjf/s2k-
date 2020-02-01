@@ -39,13 +39,11 @@ class LeagueVC: UITableViewController {
                 self.tableView.reloadData()
             }
         }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         checkNetwork()
-        googleAdMobBanner.loadAdMob()
     }
-
- 
 // MARK: set the section info
     override func tableView (_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
@@ -128,7 +126,8 @@ private extension LeagueVC {
     func checkNetwork() {
         if NetworkStatus.shared.isMonitoring {
           if NetworkStatus.shared.isConnected {
-              self.view.addSubview(networkActivity)
+            googleAdMobBanner.loadAdMob()
+            self.view.addSubview(networkActivity)
             fetchData(source: DataSource.source, dataType: "0", dataTypeDetail: "0")
           } else {
               let networkActivity = NetworkActivity(text: "Network ISSUE")

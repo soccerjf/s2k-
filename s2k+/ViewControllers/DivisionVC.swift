@@ -62,28 +62,13 @@ extension DivisionVC: UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
-      switch kind {
-      case UICollectionView.elementKindSectionHeader:
-        guard
-          let headerView = collectionView.dequeueReusableSupplementaryView(
+        let headerView = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: "\(DivisionSectionHeaderView.self)",
             for: indexPath) as? DivisionSectionHeaderView
-          else {
-            if let presented = self.presentedViewController {
-                presented.removeFromParent()
-              }
-            if self.presentedViewController == nil {
-                self.showAlert(title: "Error", message: "Invalid view type, please contact 8th Line Software, issues@8thline.org")
-            }
-            assert(false, "Invalid element type")
-        }
-        headerView.divisionSectionHeader.text = "Divisions for " + self.leagueName
-        headerView.divisionSectionHeaderHelp.text = "Tap on division section to see teams"
-        return headerView
-      default:
-        assert(false, "Invalid element type")
-      }
+        headerView!.divisionSectionHeader.text = "Divisions for " + self.leagueName
+        headerView!.divisionSectionHeaderHelp.text = "Tap on division section to see teams"
+        return headerView!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

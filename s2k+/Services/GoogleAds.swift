@@ -18,7 +18,7 @@ class GoogleAds: NSObject, GADBannerViewDelegate {
         self.sourceTableViewController = sourceTableViewController
         adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
         super.init()
-        adBannerView.adUnitID = "ca-app-pub-1456354134093094~1862781169"
+        adBannerView.adUnitID = "ca-app-pub-1456354134093094/1348416479"
         adBannerView.delegate = self
         adBannerView.rootViewController = sourceTableViewController
     }
